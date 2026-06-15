@@ -1,0 +1,161 @@
+---
+const companyLinks = [
+  { href: "/about", label: "About Us" },
+  { href: "/services", label: "Services" },
+  { href: "/team", label: "Our Team" },
+];
+
+const knowMoreLinks = [
+  { href: "/support", label: "Support" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms & conditions" },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-row">
+      <div class="footer-about">
+        <img
+          src="/assets/images/logo-azar.png"
+          alt="Azar Fire"
+          width="220"
+          height="55"
+          class="footer-logo"
+        />
+        <p class="footer-tagline">
+          Nationwide fire safety consultancy and passive fire protection — keeping your buildings, your
+          people and your compliance covered.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Company">
+        <p class="footer-nav-title">Company</p>
+        <ul>
+          {companyLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Know More">
+        <p class="footer-nav-title">Know More</p>
+        <ul>
+          {knowMoreLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+        </ul>
+      </nav>
+    </div>
+
+    <hr class="footer-divider" />
+
+    <p class="footer-copyright">© {year} Azar Fire Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-petrol);
+    color: var(--color-white);
+    padding-block: 6.25em 1.25em;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    align-items: center;
+  }
+
+  .footer-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 6em;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer-about {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    max-width: 22.25em;
+  }
+
+  .footer-logo {
+    width: 13.75em;
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-accent);
+    font-weight: 400;
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+    color: var(--color-white);
+  }
+
+  .footer-nav-title {
+    font-family: var(--font-accent);
+    font-weight: 700;
+    font-size: var(--fs-md);
+    color: var(--color-white);
+    margin-bottom: 1.5em;
+  }
+
+  .footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .footer-nav a {
+    font-family: var(--font-accent);
+    font-weight: 500;
+    font-size: var(--fs-sm);
+    color: var(--color-white);
+    opacity: 0.85;
+    transition: opacity var(--transition-fast), color var(--transition-fast);
+  }
+
+  .footer-nav a:hover {
+    opacity: 1;
+    color: var(--color-mustard);
+  }
+
+  .footer-divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .footer-copyright {
+    font-family: var(--font-accent);
+    font-size: var(--fs-sm);
+    color: var(--color-white);
+    opacity: 0.85;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 991px) {
+    .footer-row {
+      grid-template-columns: 1fr 1fr;
+      gap: 3em;
+    }
+    .footer-about {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .footer-row {
+      grid-template-columns: 1fr;
+      gap: 2em;
+    }
+    .footer {
+      padding-block: 3em 1em;
+    }
+  }
+</style>

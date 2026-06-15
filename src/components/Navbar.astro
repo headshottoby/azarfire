@@ -1,0 +1,110 @@
+---
+const links = [
+  { href: "/", label: "Home", active: true },
+  { href: "/about", label: "About us" },
+  { href: "/services", label: "Services" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="navbar">
+  <div class="navbar-inner container">
+    <a href="/" class="navbar-logo" aria-label="Azar Fire — Home">
+      <img src="/assets/images/logo-azar.png" alt="Azar Fire" width="268" height="66" />
+    </a>
+
+    <nav class="navbar-menu" aria-label="Primary">
+      <ul>
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} class:list={["nav-link", { active: link.active }]}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <a href="/contact" class="btn btn-dark navbar-cta">Get in touch</a>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    width: 100%;
+    background-color: var(--color-white);
+  }
+
+  .navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.5em;
+    gap: 2em;
+  }
+
+  .navbar-logo {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .navbar-logo img {
+    width: 16.75em; /* 268px */
+    height: auto;
+    max-height: 4.125em; /* 66px */
+    object-fit: contain;
+  }
+
+  .navbar-menu ul {
+    display: flex;
+    align-items: center;
+    gap: 1.8125em; /* ~29px */
+  }
+
+  .nav-link {
+    font-family: var(--font-accent);
+    font-size: var(--fs-sm);
+    color: var(--color-grey);
+    line-height: 1.25;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    color: var(--color-petrol);
+  }
+
+  .nav-link.active {
+    color: var(--color-charcoal);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  .navbar-cta {
+    padding: 0.75em 2em;
+    background-color: var(--color-petrol);
+    color: var(--color-mustard);
+  }
+
+  .navbar-cta:hover {
+    background-color: #00263b;
+  }
+
+  @media (max-width: 991px) {
+    .navbar-menu {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .navbar-inner {
+      gap: 1em;
+    }
+    .navbar-cta {
+      padding: 0.625em 1.25em;
+    }
+  }
+</style>

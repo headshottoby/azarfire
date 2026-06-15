@@ -1,0 +1,241 @@
+---
+const services = [
+  {
+    image: "/assets/images/service-fire-risk-assessment.jpg",
+    title: "Fire Risk Assessments",
+    description:
+      "Your legal starting point. We inspect your building, identify the risks and hand you a clear report — no jargon, no unnecessary alarm.",
+  },
+  {
+    image: "/assets/images/service-fire-door-inspections.jpg",
+    title: "Fire Door Inspections",
+    description:
+      "A legal requirement, and easy to let slide. We check every door is doing its job and flag anything that needs attention.",
+  },
+  {
+    image: "/assets/images/service-fire-door-installation.jpg",
+    title: "Fire Door Installation",
+    description:
+      "Done right, first time. We fit fire doors to the correct spec — and you get the certification to prove it.",
+  },
+  {
+    image: "/assets/images/service-fire-door-maintenance.jpg",
+    title: "Fire Door Maintenance",
+    description:
+      "Closers fail, seals compress, hinges shift. We catch it before it becomes a compliance problem.",
+  },
+  {
+    image: "/assets/images/service-fire-stopping-surveys.jpg",
+    title: "Fire Stopping Surveys",
+    description:
+      "Every pipe and cable that passes through a fire-rated wall is a potential weak point. We find every breach and report back with marked drawings.",
+  },
+  {
+    image: "/assets/images/service-fire-stopping-installations.jpg",
+    title: "Fire Stopping Installations",
+    description:
+      "We seal the gaps properly, using approved products for each application. Full documentation included as standard.",
+  },
+];
+---
+
+<section class="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="services-header">
+      <p class="services-decorative" aria-hidden="true">Our Services</p>
+      <div class="services-titles">
+        <h2 id="services-heading" class="services-heading">What we take care of</h2>
+        <p class="services-sub">
+          From a one-off fire risk assessment to ongoing fire door maintenance across a whole portfolio — we
+          cover everything.
+        </p>
+      </div>
+    </div>
+
+    <hr class="services-divider" />
+
+    <div class="services-grid">
+      {
+        services.map((service) => (
+          <article class="service-card">
+            <div class="service-card-image">
+              <img src={service.image} alt={service.title} loading="lazy" width="370" height="262" />
+            </div>
+            <h3 class="service-card-title">{service.title}</h3>
+            <p class="service-card-description">{service.description}</p>
+            <a href="/services" class="btn-find-out-more">
+              Find Out More
+              <svg viewBox="0 0 20 20" aria-hidden="true" fill="none">
+                <path
+                  d="M4 10h12m0 0l-5-5m5 5l-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="services-footer">
+      <a href="/contact" class="btn btn-dark services-cta">
+        Get in touch
+        <svg viewBox="0 0 20 20" aria-hidden="true" fill="none">
+          <path
+            d="M4 10h12m0 0l-5-5m5 5l-5 5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background-color: var(--color-white);
+    padding-block: 4.875em 1.25em; /* 78px top, 20px bottom */
+  }
+
+  .services-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
+
+  .services-decorative {
+    font-family: var(--font-script);
+    font-size: var(--fs-script); /* 64px */
+    color: var(--color-mustard);
+    font-weight: 400;
+    line-height: 1;
+    transform: rotate(-11deg);
+    transform-origin: left center;
+    flex-shrink: 0;
+  }
+
+  .services-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    max-width: 35.4375em; /* 567px */
+  }
+
+  .services-heading {
+    font-family: var(--font-heading);
+    font-size: var(--fs-xl); /* 36px */
+    font-weight: 700;
+    color: var(--color-petrol);
+    line-height: 1.1;
+  }
+
+  .services-sub {
+    font-family: var(--font-heading);
+    font-size: var(--fs-md); /* 20px */
+    color: var(--color-grey-soft);
+    line-height: 1.4;
+  }
+
+  .services-divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin-block: 2.5em;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.9375em; /* 47px */
+    align-items: start;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-bottom: 1.875em;
+  }
+
+  .service-card-image {
+    aspect-ratio: 370 / 262;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background-color: var(--color-warm-white);
+  }
+
+  .service-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-card-title {
+    font-family: var(--font-accent);
+    font-weight: 600;
+    font-size: var(--fs-lg); /* 24px */
+    line-height: 1.2;
+    color: var(--color-charcoal);
+    margin-top: 0.25em;
+  }
+
+  .service-card-description {
+    font-family: var(--font-heading);
+    font-size: var(--fs-sm); /* 16px */
+    color: var(--color-grey-soft);
+    line-height: 1.4;
+    margin-bottom: 0.25em;
+  }
+
+  .services-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2.5em;
+  }
+
+  .services-cta {
+    padding: 0.75em 1.25em;
+    font-family: var(--font-accent);
+    font-weight: 400;
+    color: var(--color-white);
+  }
+
+  .services-cta svg {
+    width: 1.25em;
+    height: 1.25em;
+  }
+
+  @media (max-width: 991px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2em;
+    }
+    .services-decorative {
+      font-size: 3em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 2em;
+    }
+    .services-header {
+      flex-direction: column;
+      gap: 1em;
+    }
+    .services-decorative {
+      font-size: 2.75em;
+      transform: rotate(-8deg);
+    }
+    .services-heading {
+      font-size: 1.875em;
+    }
+  }
+</style>

@@ -1,0 +1,257 @@
+---
+---
+
+<section class="contact" aria-labelledby="contact-heading">
+  <p class="contact-decorative" aria-hidden="true">Contact Us</p>
+
+  <div class="container contact-inner">
+    <div class="contact-info">
+      <h2 id="contact-heading" class="contact-heading">Find us</h2>
+
+      <ul class="contact-list">
+        <li class="contact-card">
+          <img src="/assets/images/icon-call.svg" alt="" class="contact-icon" width="74" height="74" />
+          <div class="contact-card-text">
+            <p class="contact-card-label">Call Us</p>
+            <a href="tel:+441522530048" class="contact-card-value">01522 530048</a>
+          </div>
+        </li>
+
+        <li class="contact-card">
+          <img src="/assets/images/icon-email.svg" alt="" class="contact-icon" width="74" height="74" />
+          <div class="contact-card-text">
+            <p class="contact-card-label">Email Now</p>
+            <a href="mailto:info@azarfire.co.uk" class="contact-card-value">info@azarfire.co.uk</a>
+          </div>
+        </li>
+
+        <li class="contact-card">
+          <img src="/assets/images/icon-address.svg" alt="" class="contact-icon" width="74" height="74" />
+          <div class="contact-card-text">
+            <p class="contact-card-label">Address</p>
+            <p class="contact-card-value">1 Newlin Business Park, Exchange Road, Lincoln, LN6 3AB</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contact-form-area">
+      <div class="contact-cta-text">
+        <h2 class="contact-cta-heading">
+          Let&rsquo;s take fire safety <span class="contact-cta-accent">off your plate.</span>
+        </h2>
+        <p class="contact-cta-sub">
+          Get in touch and we&rsquo;ll have a no-obligation chat about your building — and what, if anything,
+          needs doing.
+        </p>
+      </div>
+
+      <form class="contact-form" action="#" method="post">
+        <label class="contact-field">
+          <span class="sr-only">Name</span>
+          <input type="text" name="name" placeholder="Name" required />
+        </label>
+        <label class="contact-field">
+          <span class="sr-only">Email</span>
+          <input type="email" name="email" placeholder="Email" required />
+        </label>
+        <label class="contact-field">
+          <span class="sr-only">Message</span>
+          <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-charcoal contact-submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    position: relative;
+    background-color: var(--color-warm-white);
+    padding-block: 4.6875em;
+    overflow: hidden;
+  }
+
+  .contact-decorative {
+    position: absolute;
+    top: 1.5em;
+    left: 7.5em; /* 120px */
+    font-family: var(--font-script);
+    font-size: var(--fs-script); /* 64px */
+    color: var(--color-mustard);
+    font-weight: 400;
+    line-height: 1;
+    transform: rotate(-11deg);
+    transform-origin: left center;
+    z-index: 0;
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4em;
+    align-items: end;
+    padding-top: 4em;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    max-width: 37.5em; /* 600px */
+  }
+
+  .contact-heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--fs-xl); /* 36px */
+    color: var(--color-charcoal);
+    line-height: 1.2;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875em; /* 30px */
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75em;
+    padding: 1.25em;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-charcoal);
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 3.375em; /* 54px */
+    height: 3.375em;
+    object-fit: contain;
+  }
+
+  .contact-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    color: var(--color-charcoal);
+  }
+
+  .contact-card-label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--fs-md); /* 20px */
+    letter-spacing: 0.6px;
+  }
+
+  .contact-card-value {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: var(--fs-sm); /* 16px */
+    line-height: 1.2;
+    color: var(--color-charcoal);
+  }
+
+  a.contact-card-value:hover {
+    color: var(--color-petrol);
+  }
+
+  .contact-form-area {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    max-width: 31.25em; /* 500px */
+  }
+
+  .contact-cta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .contact-cta-heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--fs-xl); /* 36px */
+    line-height: 1.2;
+    color: var(--color-charcoal);
+  }
+
+  .contact-cta-accent {
+    color: var(--color-mustard);
+    text-decoration: underline;
+    text-underline-offset: 0.125em;
+  }
+
+  .contact-cta-sub {
+    font-family: var(--font-heading);
+    font-size: var(--fs-sm); /* 16px */
+    color: var(--color-charcoal);
+    line-height: 1.5;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875em;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    width: 100%;
+    padding: 1.125em 1.25em;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-charcoal);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-input);
+    font-family: var(--font-accent);
+    font-size: var(--fs-sm);
+    color: var(--color-charcoal);
+    line-height: 1.25;
+    resize: vertical;
+  }
+
+  .contact-field input::placeholder,
+  .contact-field textarea::placeholder {
+    color: var(--color-charcoal);
+    opacity: 0.6;
+  }
+
+  .contact-field textarea {
+    min-height: 5.5em;
+  }
+
+  .contact-submit {
+    align-self: flex-start;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 0.75em 1.5em;
+  }
+
+  @media (max-width: 991px) {
+    .contact-inner {
+      grid-template-columns: 1fr;
+      gap: 3em;
+      padding-top: 5em;
+    }
+    .contact-decorative {
+      left: 1em;
+      font-size: 3em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .contact-heading,
+    .contact-cta-heading {
+      font-size: 1.875em;
+    }
+    .contact-card-label {
+      font-size: 1.125em;
+    }
+  }
+</style>

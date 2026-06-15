@@ -1,0 +1,133 @@
+---
+---
+
+<section class="pfp" aria-labelledby="pfp-heading">
+  <div class="container pfp-inner">
+    <div class="pfp-media" aria-hidden="true">
+      <div class="pfp-image-placeholder">
+        <span>Image to be supplied</span>
+      </div>
+    </div>
+
+    <div class="pfp-content">
+      <p class="pfp-eyebrow">What actually is passive fire protection?</p>
+      <h2 id="pfp-heading" class="pfp-heading">How Passive Fire Protection Works</h2>
+
+      <div class="pfp-body">
+        <p><strong>You&rsquo;ve probably heard the term but most people don&rsquo;t know exactly what it means until something goes wrong.</strong></p>
+        <p>Active fire protection is your alarms and extinguishers, the things that respond when a fire breaks out.</p>
+        <p>Passive fire protection is what&rsquo;s built into the structure of the building itself.</p>
+        <p><em>Fire doors. Sealed service penetrations. Cavity barriers. Compartment walls.</em></p>
+        <p>These things don&rsquo;t make a noise or flash a light. They just quietly stop a fire from spreading while people get out safely.</p>
+        <p>
+          As a building owner or manager, keeping all of it maintained and compliant is your legal responsibility.
+          <strong class="pfp-accent">That&rsquo;s where we come in.</strong>
+        </p>
+      </div>
+
+      <a href="/contact" class="btn btn-primary pfp-cta">Find out what your building needs</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pfp {
+    background-color: var(--color-white);
+    padding-block: 4.5em;
+  }
+
+  .pfp-inner {
+    display: grid;
+    grid-template-columns: 26.5em 1fr;
+    gap: 4em;
+    align-items: start;
+  }
+
+  .pfp-media {
+    width: 100%;
+  }
+
+  .pfp-image-placeholder {
+    width: 100%;
+    aspect-ratio: 424 / 562;
+    background-color: #d9d9d9;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-grey-soft);
+    font-size: 0.875em;
+  }
+
+  .pfp-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    max-width: 36em;
+  }
+
+  .pfp-eyebrow {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--fs-xl); /* 36px */
+    color: var(--color-mustard);
+    line-height: 1.2;
+  }
+
+  .pfp-heading {
+    font-family: var(--font-accent);
+    font-weight: 600;
+    font-size: 2.75em; /* 44px */
+    color: var(--color-charcoal);
+    line-height: 1.2;
+  }
+
+  .pfp-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    font-family: var(--font-heading);
+    font-size: var(--fs-md); /* 20px */
+    line-height: 1.5;
+    color: var(--color-charcoal);
+  }
+
+  .pfp-body strong {
+    font-weight: 700;
+  }
+
+  .pfp-accent {
+    color: var(--color-mustard);
+    font-weight: 700;
+  }
+
+  .pfp-cta {
+    margin-top: 1em;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 991px) {
+    .pfp-inner {
+      grid-template-columns: 1fr;
+      gap: 2em;
+    }
+    .pfp-image-placeholder {
+      max-width: 26.5em;
+    }
+    .pfp-heading {
+      font-size: 2.25em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .pfp-eyebrow {
+      font-size: 1.75em;
+    }
+    .pfp-heading {
+      font-size: 1.875em;
+    }
+    .pfp-body {
+      font-size: 1em;
+    }
+  }
+</style>
