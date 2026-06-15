@@ -80,6 +80,10 @@ const services = [
     </div>
 
     <div class="services-footer">
+      <p class="services-footer-copy">
+        <strong>Not sure which services your building needs?</strong>
+        Get in touch and we'll talk you through it.
+      </p>
       <a href="/contact" class="btn btn-dark services-cta">
         Get in touch
         <svg viewBox="0 0 20 20" aria-hidden="true" fill="none">
@@ -195,8 +199,25 @@ const services = [
 
   .services-footer {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 2.5em;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5em;
+    margin-top: 3.5em;
+    padding-inline: 1em;
+  }
+
+  .services-footer-copy {
+    font-family: var(--font-heading);
+    font-size: 1.875em; /* 30px */
+    line-height: 1.3;
+    color: var(--color-charcoal);
+    max-width: 32em;
+  }
+
+  .services-footer-copy strong {
+    font-weight: 700;
+    display: block;
   }
 
   .services-cta {

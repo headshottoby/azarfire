@@ -1,0 +1,262 @@
+---
+const steps = [
+  {
+    number: "1",
+    title: "Tell us about your building",
+    body: "A quick call or email is enough to get started. Tell us what you've got and we'll tell you what you need.",
+  },
+  {
+    number: "2",
+    title: "We come to you",
+    body: "We work around your schedule. Whether that's out of hours, between tenancies or on a tight contractor programme — we'll make it work.",
+  },
+  {
+    number: "3",
+    title: "You get the paperwork",
+    body: "Every job comes with full documentation. Reports, certificates, O&M manuals — everything you need for your records, your insurer or your next inspection.",
+  },
+];
+---
+
+<section class="process" aria-labelledby="process-heading">
+  <p class="process-decorative" aria-hidden="true">The Process</p>
+
+  <div class="container process-inner">
+    <header class="process-header">
+      <h2 id="process-heading" class="process-heading">How It Works</h2>
+      <p class="process-sub">
+        From first call to final paperwork — a straightforward three-step process designed to fit
+        around your building and your schedule.
+      </p>
+      <a href="/contact" class="btn btn-primary process-cta">Get in touch</a>
+    </header>
+
+    <div class="process-stage">
+      <img
+        src="/assets/images/process-path.svg"
+        alt=""
+        class="process-path"
+        aria-hidden="true"
+      />
+
+      <ol class="process-steps">
+        {
+          steps.map((step) => (
+            <li class="process-step">
+              <span class="process-step-number" aria-hidden="true">{step.number}</span>
+              <div class="process-step-card">
+                <span class="process-step-dot" aria-hidden="true"></span>
+                <h3 class="process-step-title">{step.title}</h3>
+                <p class="process-step-body">{step.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    position: relative;
+    background-color: var(--color-white);
+    padding-block: 5em 4em;
+    overflow: hidden;
+  }
+
+  .process-decorative {
+    position: absolute;
+    top: 2em;
+    left: 7.3em; /* 117px */
+    font-family: var(--font-script);
+    font-size: var(--fs-script); /* 64px */
+    color: var(--color-mustard);
+    font-weight: 400;
+    line-height: 1;
+    transform: rotate(-11deg);
+    transform-origin: left center;
+    z-index: 0;
+  }
+
+  .process-inner {
+    position: relative;
+    z-index: 1;
+    padding-top: 5em; /* leave room for decorative title */
+  }
+
+  .process-header {
+    display: grid;
+    grid-template-columns: minmax(0, 23em) minmax(0, 23em) auto;
+    align-items: center;
+    gap: 2.5em;
+    margin-bottom: 3em;
+  }
+
+  .process-heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--fs-xl); /* 36px */
+    color: var(--color-petrol);
+    line-height: 1.2;
+  }
+
+  .process-sub {
+    font-family: var(--font-heading);
+    font-size: var(--fs-md); /* 20px */
+    color: var(--color-grey-soft);
+    line-height: 1.4;
+  }
+
+  .process-cta {
+    justify-self: end;
+  }
+
+  /* Stage with the decorative path behind and 3 steps in a row */
+  .process-stage {
+    position: relative;
+    width: 100%;
+    margin-top: 2em;
+  }
+
+  .process-path {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 63.5em; /* 1017px */
+    height: auto;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .process-steps {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .process-step {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    padding-top: 8em;
+  }
+
+  .process-step:nth-child(2) {
+    padding-top: 5em;
+  }
+
+  .process-step:nth-child(3) {
+    padding-top: 2em;
+  }
+
+  .process-step-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 12.75em; /* 204px */
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-petrol);
+    opacity: 0.06;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .process-step-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    max-width: 20.5em; /* ~328px */
+  }
+
+  .process-step-dot {
+    width: 1.4375em; /* 23px */
+    height: 1.4375em;
+    border-radius: 50%;
+    background-color: var(--color-petrol);
+    box-shadow: 0 0 0 0.875em var(--color-white);
+    margin-bottom: 1em;
+  }
+
+  .process-step-title {
+    font-family: var(--font-accent);
+    font-weight: 600;
+    font-size: var(--fs-lg); /* 24px */
+    color: var(--color-petrol);
+    line-height: 1.2;
+  }
+
+  .process-step-body {
+    font-family: var(--font-heading);
+    font-size: var(--fs-md); /* 20px */
+    color: var(--color-charcoal);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 991px) {
+    .process-decorative {
+      font-size: 3em;
+      left: 1em;
+    }
+
+    .process-header {
+      grid-template-columns: 1fr;
+      gap: 1em;
+    }
+
+    .process-cta {
+      justify-self: start;
+    }
+
+    .process-path {
+      display: none;
+    }
+
+    .process-steps {
+      grid-template-columns: 1fr;
+      gap: 3em;
+    }
+
+    .process-step,
+    .process-step:nth-child(2),
+    .process-step:nth-child(3) {
+      padding-top: 0;
+    }
+
+    .process-step-number {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      font-size: 5em;
+      margin-bottom: 0.25em;
+      line-height: 1;
+      align-self: flex-start;
+    }
+
+    .process-step-card {
+      max-width: 32em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .process-heading {
+      font-size: 1.875em;
+    }
+  }
+</style>
