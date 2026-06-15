@@ -19,10 +19,9 @@ const steps = [
 ---
 
 <section class="process" aria-labelledby="process-heading">
-  <p class="process-decorative" aria-hidden="true">The Process</p>
-
   <div class="container process-inner">
     <header class="process-header">
+      <p class="process-decorative" aria-hidden="true">The Process</p>
       <h2 id="process-heading" class="process-heading">How It Works</h2>
       <p class="process-sub">
         From first call to final paperwork — a straightforward three-step process designed to fit
@@ -59,16 +58,25 @@ const steps = [
 
 <style>
   .process {
-    position: relative;
     background-color: var(--color-white);
-    padding-block: 5em 4em;
+    padding-block: 4em;
     overflow: hidden;
   }
 
+  .process-inner {
+    position: relative;
+  }
+
+  .process-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    max-width: 35em;
+    margin-bottom: 3em;
+  }
+
   .process-decorative {
-    position: absolute;
-    top: 2em;
-    left: 7.3em; /* 117px */
     font-family: var(--font-script);
     font-size: var(--fs-script); /* 64px */
     color: var(--color-mustard);
@@ -76,21 +84,7 @@ const steps = [
     line-height: 1;
     transform: rotate(-11deg);
     transform-origin: left center;
-    z-index: 0;
-  }
-
-  .process-inner {
-    position: relative;
-    z-index: 1;
-    padding-top: 5em; /* leave room for decorative title */
-  }
-
-  .process-header {
-    display: grid;
-    grid-template-columns: minmax(0, 23em) minmax(0, 23em) auto;
-    align-items: center;
-    gap: 2.5em;
-    margin-bottom: 3em;
+    margin-bottom: 0.25em;
   }
 
   .process-heading {
@@ -106,10 +100,11 @@ const steps = [
     font-size: var(--fs-md); /* 20px */
     color: var(--color-grey-soft);
     line-height: 1.4;
+    max-width: 28em;
   }
 
   .process-cta {
-    justify-self: end;
+    margin-top: 0.5em;
   }
 
   /* Stage with the decorative path behind and 3 steps in a row */
@@ -211,16 +206,6 @@ const steps = [
   @media (max-width: 991px) {
     .process-decorative {
       font-size: 3em;
-      left: 1em;
-    }
-
-    .process-header {
-      grid-template-columns: 1fr;
-      gap: 1em;
-    }
-
-    .process-cta {
-      justify-self: start;
     }
 
     .process-path {

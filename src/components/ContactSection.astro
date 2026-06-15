@@ -2,7 +2,9 @@
 ---
 
 <section class="contact" aria-labelledby="contact-heading">
-  <p class="contact-decorative" aria-hidden="true">Contact Us</p>
+  <div class="container">
+    <p class="contact-decorative" aria-hidden="true">Contact Us</p>
+  </div>
 
   <div class="container contact-inner">
     <div class="contact-info">
@@ -67,16 +69,12 @@
 
 <style>
   .contact {
-    position: relative;
     background-color: var(--color-warm-white);
-    padding-block: 4.6875em;
+    padding-block: 4em 4.6875em;
     overflow: hidden;
   }
 
   .contact-decorative {
-    position: absolute;
-    top: 1.5em;
-    left: 7.5em; /* 120px */
     font-family: var(--font-script);
     font-size: var(--fs-script); /* 64px */
     color: var(--color-mustard);
@@ -84,17 +82,15 @@
     line-height: 1;
     transform: rotate(-11deg);
     transform-origin: left center;
-    z-index: 0;
+    margin-bottom: 1em;
   }
 
   .contact-inner {
-    position: relative;
-    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4em;
     align-items: end;
-    padding-top: 4em;
+    padding-top: 2em;
   }
 
   .contact-info {
@@ -237,10 +233,9 @@
     .contact-inner {
       grid-template-columns: 1fr;
       gap: 3em;
-      padding-top: 5em;
+      padding-top: 1em;
     }
     .contact-decorative {
-      left: 1em;
       font-size: 3em;
     }
   }
