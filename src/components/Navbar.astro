@@ -3,7 +3,7 @@ const links = [
   { href: "/", label: "Home", active: true },
   { href: "/about", label: "About us" },
   { href: "/services", label: "Services" },
-  { href: "/blog", label: "Blog" },
+  { href: "/advice", label: "Advice" },
   { href: "/contact", label: "Contact" },
 ];
 ---
@@ -19,7 +19,11 @@ const links = [
         {
           links.map((link) => (
             <li>
-              <a href={link.href} class:list={["nav-link", { active: link.active }]}>
+              <a
+                href={link.href}
+                class:list={["nav-link", { active: link.active }]}
+                data-underline-link
+              >
                 {link.label}
               </a>
             </li>
@@ -65,10 +69,13 @@ const links = [
   }
 
   .nav-link {
+    position: relative;
+    display: inline-block;
     font-family: var(--font-accent);
     font-size: var(--fs-sm);
     color: var(--color-grey);
     line-height: 1.25;
+    text-decoration: none;
     transition: color var(--transition-fast);
   }
 
@@ -79,8 +86,43 @@ const links = [
   .nav-link.active {
     color: var(--color-charcoal);
     font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 0.25em;
+  }
+
+  /* Underline sweep — pure CSS scaleX transition */
+  .nav-link[data-underline-link]::before {
+    content: "";
+    position: absolute;
+    bottom: -0.25em;
+    left: 0;
+    width: 100%;
+    height: 0.0625em; /* 1px @ 16 */
+    background-color: currentColor;
+    transform: scaleX(0) rotate(0.001deg);
+    transform-origin: right;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0, 1);
+  }
+
+  .nav-link.active[data-underline-link]::before {
+    transform: scaleX(1) rotate(0.001deg);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nav-link[data-underline-link]:hover::before {
+      transform: scaleX(1) rotate(0.001deg);
+      transform-origin: left;
+    }
+  }
+
+  .nav-link[data-underline-link]:focus-visible {
+    outline: 0.125rem solid var(--color-mustard);
+    outline-offset: 0.25rem;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link[data-underline-link]::before {
+      transition: none;
+    }
   }
 
   .navbar-cta {

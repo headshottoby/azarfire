@@ -41,7 +41,7 @@ const services = [
 
 <section class="services" aria-labelledby="services-heading">
   <div class="container">
-    <div class="services-header">
+    <div class="services-header" data-reveal>
       <p class="services-decorative" aria-hidden="true">Our Services</p>
       <div class="services-titles">
         <h2 id="services-heading" class="services-heading">What we take care of</h2>
@@ -54,7 +54,7 @@ const services = [
 
     <hr class="services-divider" />
 
-    <div class="services-grid">
+    <div class="services-grid" data-reveal-stagger>
       {
         services.map((service) => (
           <article class="service-card">
@@ -79,7 +79,7 @@ const services = [
       }
     </div>
 
-    <div class="services-footer">
+    <div class="services-footer" data-services-footer>
       <p class="services-footer-copy">
         <strong>Not sure which services your building needs?</strong>
         Get in touch and we'll talk you through it.
@@ -156,14 +156,18 @@ const services = [
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.9375em; /* 47px */
-    align-items: start;
   }
 
   .service-card {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    height: 100%;
     padding-bottom: 1.875em;
+  }
+
+  .service-card .btn-find-out-more {
+    margin-top: auto;
   }
 
   .service-card-image {
@@ -178,6 +182,13 @@ const services = [
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  @media (hover: hover) {
+    .service-card-image:hover img {
+      transform: scale(1.06);
+    }
   }
 
   .service-card-title {

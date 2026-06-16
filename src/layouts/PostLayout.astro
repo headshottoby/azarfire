@@ -1,0 +1,357 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  publishDate: string;
+  updateDate?: string;
+  author: string;
+  category: string;
+  slug: string;
+  readTime: string;
+  faqSchema?: Array<{ question: string; answer: string }>;
+}
+
+const { title, description, publishDate, updateDate, author, category, slug, readTime, faqSchema } = Astro.props;
+
+const siteUrl = 'https://azarfire.co.uk';
+const canonicalUrl = `${siteUrl}/advice/${slug}`;
+const pageTitle = `${title} | Azar Fire`;
+
+const schemaGraph: object[] = [
+  {
+    '@type': 'Article',
+    headline: title,
+    description,
+    author: {
+      '@type': 'Person',
+      name: author,
+      worksFor: { '@type': 'Organization', name: 'Azar Fire', url: siteUrl },
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Azar Fire',
+      url: siteUrl,
+      logo: { '@type': 'ImageObject', url: `${siteUrl}/assets/images/logo-azar.png` },
+    },
+    datePublished: publishDate,
+    ...(updateDate ? { dateModified: updateDate } : {}),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    url: canonicalUrl,
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Advice', item: `${siteUrl}/advice` },
+      { '@type': 'ListItem', position: 3, name: title, item: canonicalUrl },
+    ],
+  },
+];
+
+if (faqSchema && faqSchema.length > 0) {
+  schemaGraph.push({
+    '@type': 'FAQPage',
+    mainEntity: faqSchema.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
+    })),
+  });
+}
+
+const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph });
+
+const formattedDate = new Date(publishDate).toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
+const formattedUpdate = updateDate
+  ? new Date(updateDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  : null;
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Azar Fire" />
+    <meta property="article:published_time" content={publishDate} />
+    {updateDate && <meta property="article:modified_time" content={updateDate} />}
+    <meta property="article:author" content={author} />
+    <meta property="article:section" content={category} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={schemaJson}></script>
+  </Fragment>
+
+  <Navbar />
+  <main>
+    <article>
+      <header class="post-header">
+        <div class="container post-header-inner">
+          <nav class="post-breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li><a href="/advice">Advice</a></li>
+              <li aria-current="page">{title}</li>
+            </ol>
+          </nav>
+          <p class="post-category">{category}</p>
+          <h1 class="post-title">{title}</h1>
+          <div class="post-meta">
+            <span class="post-meta-item">By {author}</span>
+            <span class="post-meta-sep" aria-hidden="true">·</span>
+            <time datetime={publishDate} class="post-meta-item">{formattedDate}</time>
+            {formattedUpdate && (
+              <>
+                <span class="post-meta-sep" aria-hidden="true">·</span>
+                <span class="post-meta-item">Updated {formattedUpdate}</span>
+              </>
+            )}
+            <span class="post-meta-sep" aria-hidden="true">·</span>
+            <span class="post-meta-item">{readTime}</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="post-body">
+        <div class="container post-body-inner">
+          <div class="prose">
+            <slot />
+          </div>
+          <aside class="post-cta" aria-label="Contact Azar Fire">
+            <p class="post-cta-text">Need expert fire safety advice for your building? The Azar Fire team is here to help.</p>
+            <a href="/#contact" class="btn btn-mustard">Get in touch</a>
+          </aside>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* ── HEADER ───────────────────────────────────────────────────────────── */
+
+  .post-header {
+    background-color: var(--color-petrol);
+    padding-block: 3em 3.75em;
+  }
+
+  .post-header-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875em;
+  }
+
+  .post-breadcrumb ol {
+    display: flex;
+    gap: 0.375em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .post-breadcrumb li {
+    font-family: var(--font-accent);
+    font-size: 0.875em;
+    color: rgba(255, 255, 255, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 0.375em;
+  }
+
+  .post-breadcrumb li:not(:last-child)::after {
+    content: '/';
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .post-breadcrumb a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .post-breadcrumb a:hover { color: var(--color-mustard); }
+
+  .post-breadcrumb li:last-child { color: rgba(255, 255, 255, 0.35); }
+
+  .post-category {
+    font-family: var(--font-accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-mustard);
+    margin: 0;
+  }
+
+  .post-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.75em, 4vw, 2.75em);
+    color: var(--color-white);
+    line-height: 1.15;
+    max-width: 20em;
+    margin: 0;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex-wrap: wrap;
+  }
+
+  .post-meta-item {
+    font-family: var(--font-accent);
+    font-size: 0.875em;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .post-meta-sep {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.875em;
+    user-select: none;
+  }
+
+  /* ── BODY ─────────────────────────────────────────────────────────────── */
+
+  .post-body {
+    background-color: var(--color-warm-white);
+    padding-block: 4em 5.5em;
+  }
+
+  .post-body-inner {
+    max-width: 48em;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ── PROSE ────────────────────────────────────────────────────────────── */
+
+  .prose :global(p) {
+    font-family: var(--font-accent);
+    font-size: var(--fs-sm);
+    color: #3d3d3d;
+    line-height: 1.8;
+    margin: 0 0 1.25em;
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--fs-xl);
+    color: var(--color-petrol);
+    line-height: 1.2;
+    margin: 2.25em 0 0.6em;
+  }
+
+  .prose :global(h3) {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--fs-md);
+    color: var(--color-charcoal);
+    line-height: 1.3;
+    margin: 1.75em 0 0.5em;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    font-family: var(--font-accent);
+    font-size: var(--fs-sm);
+    color: #3d3d3d;
+    line-height: 1.8;
+    margin: 0 0 1.25em;
+    padding-left: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
+  }
+
+  .prose :global(strong) {
+    font-weight: 700;
+    color: var(--color-charcoal);
+  }
+
+  .prose :global(a) {
+    color: var(--color-petrol);
+    text-underline-offset: 0.125em;
+  }
+
+  .prose :global(a:hover) { color: var(--color-mustard); }
+
+  /* ── CTA BOX ──────────────────────────────────────────────────────────── */
+
+  .post-cta {
+    margin-top: 3.5em;
+    background-color: var(--color-petrol);
+    border-radius: var(--radius-lg);
+    padding: 2em 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
+
+  .post-cta-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--fs-md);
+    color: var(--color-white);
+    line-height: 1.4;
+    margin: 0;
+    max-width: 30em;
+  }
+
+  /* mustard CTA button */
+  :global(.btn-mustard) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.75em 1.5em;
+    background-color: var(--color-mustard);
+    color: var(--color-charcoal);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s, transform 0.15s;
+  }
+
+  :global(.btn-mustard:hover) {
+    background-color: #c49020;
+    transform: translateY(-1px);
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+
+  @media (max-width: 991px) {
+    .post-body-inner {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .post-title { font-size: 1.75em; }
+    .post-cta {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5em;
+    }
+  }
+</style>

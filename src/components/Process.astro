@@ -20,14 +20,13 @@ const steps = [
 
 <section class="process" aria-labelledby="process-heading">
   <div class="container process-inner">
-    <header class="process-header">
+    <header class="process-header" data-reveal>
       <p class="process-decorative" aria-hidden="true">The Process</p>
       <h2 id="process-heading" class="process-heading">How It Works</h2>
       <p class="process-sub">
         From first call to final paperwork — a straightforward three-step process designed to fit
         around your building and your schedule.
       </p>
-      <a href="/contact" class="btn btn-primary process-cta">Get in touch</a>
     </header>
 
     <div class="process-stage">
@@ -44,7 +43,6 @@ const steps = [
             <li class="process-step">
               <span class="process-step-number" aria-hidden="true">{step.number}</span>
               <div class="process-step-card">
-                <span class="process-step-dot" aria-hidden="true"></span>
                 <h3 class="process-step-title">{step.title}</h3>
                 <p class="process-step-body">{step.body}</p>
               </div>
@@ -52,6 +50,10 @@ const steps = [
           ))
         }
       </ol>
+    </div>
+
+    <div class="process-footer">
+      <a href="/contact" class="btn btn-primary process-cta">Get in touch</a>
     </div>
   </div>
 </section>
@@ -103,8 +105,10 @@ const steps = [
     max-width: 28em;
   }
 
-  .process-cta {
-    margin-top: 0.5em;
+  .process-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
   }
 
   /* Stage with the decorative path behind and 3 steps in a row */
@@ -122,6 +126,7 @@ const steps = [
     width: 100%;
     max-width: 63.5em; /* 1017px */
     height: auto;
+    aspect-ratio: 1070 / 448.255;
     opacity: 0.6;
     pointer-events: none;
     z-index: 0;
@@ -132,6 +137,7 @@ const steps = [
     z-index: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: start;
     gap: 2.5em;
     list-style: none;
     padding: 0;
@@ -142,20 +148,21 @@ const steps = [
     position: relative;
     display: flex;
     align-items: stretch;
-    padding-top: 8em;
+    padding-top: 25em;
   }
 
   .process-step:nth-child(2) {
-    padding-top: 5em;
+    padding-top: 19em;
+    justify-content: center;
   }
 
   .process-step:nth-child(3) {
-    padding-top: 2em;
+    padding-top: 14em;
   }
 
   .process-step-number {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--font-heading);
@@ -164,7 +171,7 @@ const steps = [
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--color-petrol);
-    opacity: 0.06;
+    opacity: 0.09;
     pointer-events: none;
     user-select: none;
     z-index: 0;
@@ -177,15 +184,10 @@ const steps = [
     flex-direction: column;
     gap: 0.75em;
     max-width: 20.5em; /* ~328px */
-  }
-
-  .process-step-dot {
-    width: 1.4375em; /* 23px */
-    height: 1.4375em;
-    border-radius: 50%;
-    background-color: var(--color-petrol);
-    box-shadow: 0 0 0 0.875em var(--color-white);
-    margin-bottom: 1em;
+    background-color: var(--color-white);
+    padding: 0.5em;
+    margin: -0.5em;
+    border-radius: 0.25em;
   }
 
   .process-step-title {

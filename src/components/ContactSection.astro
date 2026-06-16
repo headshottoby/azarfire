@@ -7,7 +7,7 @@
   </div>
 
   <div class="container contact-inner">
-    <div class="contact-info">
+    <div class="contact-info" data-reveal>
       <h2 id="contact-heading" class="contact-heading">Find us</h2>
 
       <ul class="contact-list">
@@ -37,7 +37,7 @@
       </ul>
     </div>
 
-    <div class="contact-form-area">
+    <div class="contact-form-area" data-reveal>
       <div class="contact-cta-text">
         <h2 class="contact-cta-heading">
           Let&rsquo;s take fire safety <span class="contact-cta-accent">off your plate.</span>
@@ -70,7 +70,7 @@
 <style>
   .contact {
     background-color: var(--color-warm-white);
-    padding-block: 4em 4.6875em;
+    padding-block: 4.875em 4em;
     overflow: hidden;
   }
 
@@ -82,43 +82,51 @@
     line-height: 1;
     transform: rotate(-11deg);
     transform-origin: left center;
-    margin-bottom: 1em;
+    margin-bottom: 0;
   }
 
   .contact-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4em;
-    align-items: end;
-    padding-top: 2em;
+    grid-template-rows: auto auto;
+    column-gap: 4em;
+    row-gap: 2.5em;
+    align-items: start;
+    padding-top: 0.5em;
   }
 
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5em;
-    max-width: 37.5em; /* 600px */
+  /* Dissolve wrappers so heading/list and cta-text/form sit directly
+     in the parent grid and share the same row boundaries */
+  .contact-info,
+  .contact-form-area {
+    display: contents;
   }
 
   .contact-heading {
+    grid-column: 1;
+    grid-row: 1;
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: var(--fs-xl); /* 36px */
     color: var(--color-charcoal);
     line-height: 1.2;
+    align-self: end; /* sit at the bottom of row 1 so it reads close to the cards */
   }
 
   .contact-list {
+    grid-column: 1;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
-    gap: 1.875em; /* 30px */
+    gap: 1.25em;
+    max-width: 24em; /* constrains cards so address wraps to 2-3 lines */
   }
 
   .contact-card {
     display: flex;
     align-items: flex-start;
     gap: 0.75em;
-    padding: 1.25em;
+    padding: 0.75em 0.875em;
     background-color: var(--color-white);
     border: 1px solid var(--color-charcoal);
     border-radius: var(--radius-lg);
@@ -157,14 +165,11 @@
     color: var(--color-petrol);
   }
 
-  .contact-form-area {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5em;
-    max-width: 31.25em; /* 500px */
-  }
+  /* .contact-form-area is display:contents — layout handled by grid children */
 
   .contact-cta-text {
+    grid-column: 2;
+    grid-row: 1;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -192,6 +197,8 @@
   }
 
   .contact-form {
+    grid-column: 2;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
     gap: 1.875em;
@@ -201,10 +208,10 @@
   .contact-field textarea {
     width: 100%;
     padding: 1.125em 1.25em;
-    background-color: var(--color-white);
+    background-color: #ffffff;
     border: 1px solid var(--color-charcoal);
     border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-input);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     font-family: var(--font-accent);
     font-size: var(--fs-sm);
     color: var(--color-charcoal);
@@ -232,8 +239,21 @@
   @media (max-width: 991px) {
     .contact-inner {
       grid-template-columns: 1fr;
-      gap: 3em;
+      grid-template-rows: none;
+      gap: 2.5em;
       padding-top: 1em;
+    }
+    /* Reset explicit grid placement so DOM order flows naturally (Find us → cards → form heading → form) */
+    .contact-heading,
+    .contact-list,
+    .contact-cta-text,
+    .contact-form {
+      grid-column: 1;
+      grid-row: auto;
+      align-self: auto;
+    }
+    .contact-list {
+      max-width: 100%;
     }
     .contact-decorative {
       font-size: 3em;
