@@ -21,9 +21,9 @@ export interface Article {
 export const articles: Article[] = [
   {
     slug: "passive-fire-protection-basics",
-    title: "Passive fire protection: the basics every duty holder should know",
+    title: "What's actually keeping your building safe from fire — and how to check (passive fire protection basics)",
     excerpt:
-      "A plain-English introduction to the built-in fire safety measures that help protect escape routes, contain smoke and support compliance records.",
+      "Most passive fire protection is invisible - built into the walls, doors and ceilings. Here's what it is, why it matters, and how to find out if yours is in good shape.",
     category: "Guidance",
     readTime: "4 min read",
     date: "2026-06-10",
@@ -33,9 +33,9 @@ export const articles: Article[] = [
   },
   {
     slug: "what-to-expect-compartmentation-survey",
-    title: "What to expect from a compartmentation survey",
+    title: "What happens when we survey your building (compartmentation survey explained)",
     excerpt:
-      "How a survey is scoped, what evidence is captured, and how findings can become a practical remediation plan for occupied buildings.",
+      "What we actually do during a passive fire protection survey, what evidence we collect, and how it turns into a clear plan you can act on.",
     category: "Surveys",
     readTime: "5 min read",
     date: "2026-05-28",
@@ -45,9 +45,9 @@ export const articles: Article[] = [
   },
   {
     slug: "fire-stopping-defects-clear-actions",
-    title: "Turning fire stopping defects into clear actions",
+    title: "Found a list of fire safety problems? Here's how to actually fix them (fire stopping remediation)",
     excerpt:
-      "A concise guide to prioritising defects, recording evidence and giving contractors the information they need to close issues properly.",
+      "A simple guide to sorting out what matters most, recording the evidence, and giving a contractor everything they need to fix fire stopping defects properly first time.",
     category: "Remediation",
     readTime: "3 min read",
     date: "2026-05-12",

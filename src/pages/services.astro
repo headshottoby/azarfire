@@ -6,43 +6,43 @@ import { Image } from "astro:assets";
 import heroImg from "../assets/images/services-hero.jpg";
 
 const instructedTo = [
-  "Portfolio condition reviews",
-  "Fire stopping and compartmentation inspections",
-  "Remediation scope and contractor support",
-  "Compliance reporting for duty holders",
+  "Find out the real condition of a building, or a whole portfolio",
+  "Check that fire-stopping work already done is actually safe",
+  "Get a clear, costed plan for fixing problems",
+  "Get reports and certificates for insurers, assessors or regulators",
 ];
 
 const capabilities = [
   {
-    title: "Passive fire surveys",
-    body: "A structured review of compartmentation, fire stopping, service penetrations, fire doors and built-in protection measures.",
+    title: "Passive Fire Surveys",
+    body: "We check your building and tell you, in plain terms, exactly what's missing or damaged so you know your risk before anyone else points it out.",
   },
   {
-    title: "Fire stopping inspections",
-    body: "Independent inspection of installed works with photographic evidence, location references and clear defect categorisation.",
+    title: "Fire Stopping Inspections",
+    body: "Had fire-stopping installed by someone else? We inspect it independently and tell you honestly whether it's actually safe, with photos to back it up.",
   },
   {
-    title: "Compartmentation reviews",
-    body: "Assessment of walls, floors, risers, voids and interfaces where breaches can compromise the fire strategy.",
+    title: "Compartmentation Review",
+    body: "Walls and floors are meant to stop fire spreading between rooms or flats. We find the gaps that let it through, before they become a problem.",
   },
   {
-    title: "Remediation strategy",
-    body: "Practical prioritisation and scope advice so project teams can move from findings to compliant works.",
+    title: "Remediation Advice",
+    body: "No vague reports. We tell you exactly what needs doing, in what order, so you can brief a contractor with confidence and control costs.",
   },
   {
-    title: "Compliance reporting",
-    body: "Clear reports for accountable persons, asset managers, project files and ongoing fire safety records.",
+    title: "Compliance Reporting",
+    body: "Clear, simple reports you can hand to your insurer, your fire risk assessor, or a regulator, proving the building is looked after.",
   },
   {
-    title: "Portfolio support",
-    body: "A consistent consultancy approach for multi-site estates, refurbishments, handovers and occupied buildings.",
+    title: "Nationwide Coverage",
+    body: "Managing several buildings or a whole portfolio? We work the same way everywhere, so you get consistent, comparable results across every site.",
   },
 ];
 ---
 
 <BaseLayout
-  title="Services — Azar Fire Ltd"
-  description="Passive fire protection consultancy services across the UK, including surveys, inspections, reporting and remediation advice."
+  title="Services — Azar Fire"
+  description="Passive fire protection services across the UK — building surveys, fire stopping inspections, compartmentation reviews and compliance reporting for owners and managers."
   path="/services"
 >
   <a href="#main" class="skip-link">Skip to content</a>
@@ -70,12 +70,11 @@ const capabilities = [
             Services
           </p>
           <h1 id="svc-hero-heading" class="svc-hero-heading">
-            Passive fire protection surveys, inspections and reporting — <em>evidence-led and FIRAS certified.</em>
+            We check, fix and certify your building&rsquo;s <em>passive fire protection.</em>
           </h1>
           <p class="svc-hero-sub">
-            Azar Fire works with building owners, managing agents, contractors and project teams to
-            identify risk, evidence compliance and guide remediation — across portfolios and individual
-            sites throughout the UK.
+            Whether you own a building, manage one, or are responsible for getting work signed off,
+            we make passive fire protection simple to understand and easy to act on.
           </p>
           <div class="svc-hero-actions">
             <a href="/#contact" class="btn btn-primary">Discuss a project</a>
@@ -84,7 +83,7 @@ const capabilities = [
         </div>
 
         <div class="svc-hero-card" data-reveal data-reveal-delay="120ms">
-          <p class="svc-hero-card-title">We are typically instructed to</p>
+          <p class="svc-hero-card-title">People usually come to us when they need to</p>
           <ul class="svc-hero-card-list">
             {instructedTo.map((item) => (
               <li>
@@ -103,9 +102,9 @@ const capabilities = [
     <section class="svc-caps" aria-labelledby="svc-caps-heading">
       <div class="container">
         <header class="svc-caps-header" data-reveal>
-          <p class="script svc-caps-label">Core capabilities</p>
+          <p class="script svc-caps-label">How we can help</p>
           <h2 id="svc-caps-heading" class="svc-caps-heading">
-            Specialist services for each stage of passive fire safety management.
+            Whatever stage you&rsquo;re at, we&rsquo;re here to support.
           </h2>
         </header>
 
@@ -127,10 +126,10 @@ const capabilities = [
       <div class="container">
         <div class="svc-cta" data-reveal>
           <div class="svc-cta-text">
-            <h2 class="svc-cta-heading">Not sure which service you need?</h2>
+            <h2 class="svc-cta-heading">Not sure which service you need? No problem!</h2>
             <p class="svc-cta-body">
-              Share what you know about the building or project and we&rsquo;ll help scope the right
-              route forward.
+              Tell us what you know about the building or project, and we&rsquo;ll work out the right
+              way forward together.
             </p>
           </div>
           <a href="/#contact" class="btn btn-primary svc-cta-btn">Contact Azar Fire</a>
