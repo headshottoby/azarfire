@@ -4,12 +4,21 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  /** Path of the current page, e.g. "/services". Used for canonical + OG url. */
+  path?: string;
+  /** Open Graph type — "website" (default) or "article". */
+  ogType?: string;
 }
 
 const {
-  title = "Azar Fire — Nationwide Fire Safety Services",
-  description = "Fire safety consultancy and passive fire protection for businesses and landlords across the UK.",
+  title = "Azar Fire Ltd — Passive Fire Safety Consultancy",
+  description = "UK nationwide passive fire safety consultancy supporting surveys, inspections, compliance reporting, and remediation advice.",
+  path = "/",
+  ogType = "website",
 } = Astro.props;
+
+const siteUrl = "https://azarfire.co.uk";
+const canonical = `${siteUrl}${path}`;
 ---
 
 <!doctype html>
@@ -19,186 +28,63 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Azar Fire Ltd" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kaushan+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://use.typekit.net/gbz8kie.css" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      name: "Azar Fire Ltd",
+      description,
+      url: canonical,
+      email: "info@azarfire.co.uk",
+      telephone: "+441522530048",
+      areaServed: "GB",
+      serviceType: "Passive fire protection",
+    })} />
+
     <slot name="head" />
   </head>
   <body>
     <slot />
-  </body>
 
-  <script>
-    import gsap from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    <script>
+      // Lightweight scroll-reveal — no dependencies.
+      const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Skip all animations when the document is hidden (preview iframe, background tab).
-    // GSAP pauses in hidden contexts, which would leave opacity:0 states stuck.
-    if (!document.hidden) {
-      const mm = gsap.matchMedia();
-      mm.add('(prefers-reduced-motion: no-preference)', () => {
-
-        // Build a one-shot scrollTrigger config
-        const onEnter = (trigger: string | Element, start = 'top 85%') => ({
-          scrollTrigger: { trigger, start, once: true },
-        });
-
-        // ── HERO (page load — staggered sequence) ──────────────────────────────
-        gsap.timeline({ delay: 0.2 })
-          .from('.hero-eyebrow', { y: 18, autoAlpha: 0, duration: 0.55, ease: 'power3.out' })
-          .from('.hero-heading', { y: 32, autoAlpha: 0, duration: 0.9,  ease: 'power3.out' }, '-=0.3')
-          .from('.hero-sub',     { y: 18, autoAlpha: 0, duration: 0.6,  ease: 'power3.out' }, '-=0.5')
-          .from('.hero-buttons', { y: 16, autoAlpha: 0, duration: 0.55, ease: 'power3.out' }, '-=0.4');
-
-        // ── SERVICES ───────────────────────────────────────────────────────────
-        // Script title rotates in from a more extreme angle, then settles at -11deg
-        gsap.timeline({
-          scrollTrigger: { trigger: '.services-header', start: 'top 83%', once: true },
-        })
-          .fromTo('.services-decorative',
-            { autoAlpha: 0, rotation: -22, y: 14, transformOrigin: 'left center' },
-            { autoAlpha: 1, rotation: -11, y: 0,  duration: 1,   ease: 'power3.out' })
-          .from('.services-heading', { y: 24, autoAlpha: 0, duration: 0.7,  ease: 'power3.out' }, '-=0.55')
-          .from('.services-sub',     { y: 16, autoAlpha: 0, duration: 0.6,  ease: 'power3.out' }, '-=0.45');
-
-        // Divider line expands from left
-        gsap.from('.services-divider', {
-          scaleX: 0, transformOrigin: 'left center', duration: 1.2, ease: 'power2.inOut',
-          ...onEnter('.services-divider', 'top 90%'),
-        });
-
-        // Cards stagger in with subtle scale
-        gsap.from('.service-card', {
-          y: 36, autoAlpha: 0, scale: 0.96, duration: 0.65, ease: 'power3.out', stagger: 0.1,
-          ...onEnter('.services-grid', 'top 83%'),
-        });
-
-        // Services footer — scrub scale + button bounce
-        const svcCopy = document.querySelector('.services-footer-copy');
-        const svcBtn  = document.querySelector('.services-cta');
-        if (svcCopy) {
-          gsap.fromTo(svcCopy,
-            { autoAlpha: 0, scale: 0.78 },
-            { autoAlpha: 1, scale: 1, ease: 'power2.out',
-              scrollTrigger: { trigger: svcCopy, start: 'top 88%', end: 'top 48%', scrub: 0.6 } }
-          );
-        }
-        if (svcBtn) {
-          gsap.from(svcBtn, {
-            autoAlpha: 0, scale: 0.85, duration: 0.55, ease: 'back.out(1.7)',
-            scrollTrigger: { trigger: svcCopy || svcBtn, start: 'top 52%', once: true },
-          });
-        }
-
-        // ── TRUST BAR ──────────────────────────────────────────────────────────
-        gsap.timeline({
-          scrollTrigger: { trigger: '.trust-bar-header', start: 'top 86%', once: true },
-        })
-          .from('.trust-bar-eyebrow', { y: 14, autoAlpha: 0, duration: 0.5,  ease: 'power3.out' })
-          .from('.trust-bar-heading', { y: 26, autoAlpha: 0, duration: 0.75, ease: 'power3.out' }, '-=0.3');
-
-        gsap.from('.trust-bar-marquee-outer', {
-          autoAlpha: 0, duration: 0.9, ease: 'power2.out',
-          ...onEnter('.trust-bar-marquee-outer', 'top 90%'),
-        });
-
-        // ── PROCESS ────────────────────────────────────────────────────────────
-        gsap.timeline({
-          scrollTrigger: { trigger: '.process-header', start: 'top 83%', once: true },
-        })
-          .fromTo('.process-decorative',
-            { autoAlpha: 0, rotation: -22, y: 14, transformOrigin: 'left center' },
-            { autoAlpha: 1, rotation: -11, y: 0,  duration: 1,   ease: 'power3.out' })
-          .from('.process-heading', { y: 24, autoAlpha: 0, duration: 0.7,  ease: 'power3.out' }, '-=0.55')
-          .from('.process-sub',     { y: 16, autoAlpha: 0, duration: 0.6,  ease: 'power3.out' }, '-=0.45');
-
-        const processStage = document.querySelector('.process-stage');
-        if (processStage) {
-          gsap.set('.process-path',       { clipPath: 'inset(0 100% 0 0)' });
-          gsap.set('.process-step-card',  { autoAlpha: 0, y: 22 });
-          gsap.set('.process-footer .btn', { autoAlpha: 0, y: 16, scale: 0.9 });
-
-          const processObserver = new IntersectionObserver((entries) => {
+      if (reduce || !("IntersectionObserver" in window)) {
+        els.forEach((el) => el.classList.add("is-visible"));
+      } else {
+        const io = new IntersectionObserver(
+          (entries, obs) => {
             entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
-              processObserver.unobserve(entry.target);
-              gsap.timeline()
-                .to('.process-path',       { clipPath: 'inset(0 0% 0 0)', duration: 1.5, ease: 'power2.inOut' })
-                .to('.process-step-card',  { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger: 0.22 }, '-=0.5')
-                .to('.process-footer .btn', { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.7)' }, '-=0.15');
+              const el = entry.target as HTMLElement;
+              const delay = el.dataset.revealDelay;
+              if (delay) el.style.transitionDelay = delay;
+              el.classList.add("is-visible");
+              obs.unobserve(el);
             });
-          }, { threshold: 0.15 });
-
-          processObserver.observe(processStage);
-        }
-
-        // ── WHY AZAR ───────────────────────────────────────────────────────────
-        gsap.timeline({
-          scrollTrigger: { trigger: '.why-azar-header', start: 'top 85%', once: true },
-        })
-          .from('.why-azar-heading', { y: 22, autoAlpha: 0, duration: 0.7, ease: 'power3.out' })
-          .from('.why-azar-sub',     { y: 14, autoAlpha: 0, duration: 0.5, ease: 'power3.out' }, '-=0.4');
-
-        // Reason cards stagger up
-        gsap.from('.why-azar-reason', {
-          y: 30, autoAlpha: 0, duration: 0.65, ease: 'power3.out', stagger: 0.14,
-          ...onEnter('.why-azar-reasons', 'top 83%'),
-        });
-
-        // Media panel slides in from the right
-        gsap.from('.why-azar-media', {
-          x: 44, autoAlpha: 0, duration: 0.9, ease: 'power3.out',
-          ...onEnter('.why-azar-body', 'top 81%'),
-        });
-
-        // ── PASSIVE FIRE PROTECTION ────────────────────────────────────────────
-        // Image panel slides in from the left
-        gsap.from('.pfp-media', {
-          x: -40, autoAlpha: 0, duration: 0.9, ease: 'power3.out',
-          ...onEnter('.pfp-inner', 'top 83%'),
-        });
-
-        // Text content builds downward
-        gsap.timeline({
-          scrollTrigger: { trigger: '.pfp-content', start: 'top 84%', once: true },
-        })
-          .from('.pfp-eyebrow', { y: 14, autoAlpha: 0, duration: 0.5,  ease: 'power3.out' })
-          .from('.pfp-heading', { y: 22, autoAlpha: 0, duration: 0.7,  ease: 'power3.out' }, '-=0.35')
-          .from('.pfp-body',    { y: 14, autoAlpha: 0, duration: 0.6,  ease: 'power3.out' }, '-=0.4')
-          .from('.pfp-cta',     { y: 14, autoAlpha: 0, scale: 0.93, duration: 0.5, ease: 'back.out(1.4)' }, '-=0.2');
-
-        // ── CONTACT ────────────────────────────────────────────────────────────
-        // Script title settles into rotation
-        gsap.fromTo('.contact-decorative',
-          { autoAlpha: 0, rotation: -22, y: 14, transformOrigin: 'left center' },
-          { autoAlpha: 1, rotation: -11, y: 0,  duration: 1,   ease: 'power3.out',
-            scrollTrigger: { trigger: '.contact', start: 'top 83%', once: true } }
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
         );
-
-        // Contact info slides in from left (.contact-info is display:contents — use child as trigger)
-        gsap.timeline({
-          scrollTrigger: { trigger: '.contact-heading', start: 'top 84%', once: true },
-        })
-          .from('.contact-heading', { x: -28, autoAlpha: 0, duration: 0.7, ease: 'power3.out' })
-          .from('.contact-card',    { x: -22, autoAlpha: 0, duration: 0.6, ease: 'power3.out', stagger: 0.13 }, '-=0.4');
-
-        // Form side builds downward (.contact-form-area is display:contents — use child as trigger)
-        gsap.timeline({
-          scrollTrigger: { trigger: '.contact-cta-text', start: 'top 84%', once: true },
-        })
-          .from('.contact-cta-heading', { y: 22, autoAlpha: 0, duration: 0.7,  ease: 'power3.out' })
-          .from('.contact-cta-sub',     { y: 14, autoAlpha: 0, duration: 0.55, ease: 'power3.out' }, '-=0.4')
-          .from('.contact-field',       { y: 18, autoAlpha: 0, duration: 0.5,  ease: 'power3.out', stagger: 0.1 }, '-=0.3')
-          .from('.contact-submit',      { y: 14, autoAlpha: 0, scale: 0.93, duration: 0.5, ease: 'back.out(1.4)' }, '-=0.1');
-
-      });
-    } // end !document.hidden
-  </script>
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
 </html>

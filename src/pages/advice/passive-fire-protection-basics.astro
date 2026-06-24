@@ -1,0 +1,64 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro";
+import { articles } from "../../data/advice";
+
+const article = articles.find((a) => a.slug === "passive-fire-protection-basics")!;
+---
+
+<PostLayout article={article}>
+  <p class="lead">
+    Passive fire protection (PFP) is the fire safety that's built into a building's structure. It
+    works quietly in the background — no alarms, no activation — to slow the spread of fire and
+    smoke and buy the people inside time to get out. Here's what every duty holder should understand.
+  </p>
+
+  <h2>What passive fire protection actually is</h2>
+  <p>
+    Fire safety measures fall into two groups. <strong>Active</strong> measures — alarms,
+    detection, sprinklers, extinguishers — do something when a fire starts. <strong>Passive</strong>
+    measures are part of the fabric of the building and are always working: walls, floors and doors
+    that resist fire for a defined period, and the seals that keep those barriers intact.
+  </p>
+  <p>
+    Together, passive measures divide a building into fire-resisting <strong>compartments</strong>.
+    The aim is to contain a fire close to where it starts, protect escape routes, and give the fire
+    service a safer, more predictable building to work in.
+  </p>
+
+  <h2>The main elements</h2>
+  <ul>
+    <li><strong>Compartment walls and floors</strong> — fire-resisting construction that holds a fire back for a set period (commonly 30, 60 or 120 minutes).</li>
+    <li><strong>Fire doors</strong> — certified doorsets, with the right seals and gaps, that keep a compartment closed.</li>
+    <li><strong>Fire stopping</strong> — the seals around pipes, cables and ducts where they pass through a fire-resisting wall or floor.</li>
+    <li><strong>Cavity barriers</strong> — measures that close concealed spaces (ceiling voids, risers) where fire could spread unseen.</li>
+    <li><strong>Structural fire protection</strong> — coatings or boards that protect steel and other structure from failing in a fire.</li>
+  </ul>
+
+  <h2>Why it matters for the responsible person</h2>
+  <p>
+    Under the <strong>Regulatory Reform (Fire Safety) Order 2005</strong>, the responsible person
+    for a non-domestic building must keep fire safety measures in working order — and that includes
+    passive measures, not just alarms and extinguishers. Recent legislation, including the Fire
+    Safety Act 2021 and the Building Safety Act 2022, has put even more weight on understanding and
+    evidencing the condition of a building's compartmentation.
+  </p>
+  <p>
+    The risk is that passive measures are easy to compromise and easy to overlook. A single
+    unsealed cable penetration or a propped-open fire door can undo an entire compartment line.
+  </p>
+
+  <h2>Keeping the records</h2>
+  <p>
+    Knowing your building is protected is only half the job — you also need to be able to show it.
+    Surveys, photographic evidence, product certification and O&M documentation form the
+    "golden thread" of information that proves what's installed, where, and to what standard.
+    Good records make future works faster and inspections far less stressful.
+  </p>
+
+  <h2>A sensible starting point</h2>
+  <p>
+    If you're not sure of the current condition of your building's passive fire protection, a
+    survey is the place to start. It establishes a baseline, flags the breaches that matter most,
+    and gives you a prioritised, evidence-backed plan rather than a guess.
+  </p>
+</PostLayout>

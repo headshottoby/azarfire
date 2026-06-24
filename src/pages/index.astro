@@ -3,27 +3,41 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
-import TrustBar from "../components/TrustBar.astro";
 import Process from "../components/Process.astro";
-import WhyAzar from "../components/WhyAzar.astro";
 import PassiveFireProtection from "../components/PassiveFireProtection.astro";
 import ContactSection from "../components/ContactSection.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<BaseLayout
-  title="Azar Fire — Nationwide Fire Safety Services"
-  description="Fire safety consultancy and passive fire protection for businesses and landlords across the UK."
->
+<BaseLayout>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <span id="top" aria-hidden="true"></span>
   <Navbar />
-  <main>
+  <main id="main">
     <Hero />
     <Services />
-    <TrustBar />
     <Process />
-    <WhyAzar />
     <PassiveFireProtection />
     <ContactSection />
   </main>
   <Footer />
 </BaseLayout>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: 0.75em;
+    top: -3em;
+    z-index: 100;
+    padding: 0.6em 1.1em;
+    background-color: var(--color-petrol);
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    transition: top var(--transition-fast);
+  }
+  .skip-link:focus {
+    top: 0.75em;
+  }
+</style>

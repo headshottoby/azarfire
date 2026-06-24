@@ -1,152 +1,260 @@
 ---
 const links = [
-  { href: "/", label: "Home", active: true },
-  { href: "/about", label: "About us" },
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/advice", label: "Advice" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ];
 ---
 
-<header class="navbar">
-  <div class="navbar-inner container">
-    <a href="/" class="navbar-logo" aria-label="Azar Fire — Home">
-      <img src="/assets/images/logo-azar.png" alt="Azar Fire" width="268" height="66" />
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo" aria-label="Azar Fire Ltd — Home">
+      <img src="/assets/images/logo-azar.png" alt="Azar Fire Ltd" width="268" height="66" />
     </a>
 
-    <nav class="navbar-menu" aria-label="Primary">
-      <ul>
-        {
-          links.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class:list={["nav-link", { active: link.active }]}
-                data-underline-link
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+    <div class="nav-right">
+      <a href="tel:+441522530048" class="btn btn-primary nav-call">
+        <svg class="nav-call-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+          <path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 005.5 5.5l1.5-2 4 1.5v3a2 2 0 01-2 2A16 16 0 014.5 5.5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <span>Call us</span>
+      </a>
 
-    <a href="/contact" class="btn btn-dark navbar-cta">Get in touch</a>
+      <button type="button" class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav id="nav-menu" class="nav-menu" aria-label="Primary">
+      <ul>
+        {links.map((link) => (
+          <li><a href={link.href} class="nav-link">{link.label}</a></li>
+        ))}
+      </ul>
+      <div class="nav-menu-foot">
+        <a href="mailto:info@azarfire.co.uk" class="nav-menu-email">info@azarfire.co.uk</a>
+        <a href="/#contact" class="btn btn-dark nav-menu-cta">Speak to a consultant</a>
+      </div>
+    </nav>
   </div>
 </header>
 
+<script>
+  const header = document.querySelector<HTMLElement>(".nav");
+  const burger = header?.querySelector<HTMLButtonElement>(".nav-burger");
+  const menu = header?.querySelector<HTMLElement>(".nav-menu");
+
+  if (header && burger && menu) {
+    const setOpen = (open: boolean) => {
+      header.classList.toggle("is-open", open);
+      burger.setAttribute("aria-expanded", String(open));
+      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+
+    burger.addEventListener("click", () =>
+      setOpen(!header.classList.contains("is-open"))
+    );
+
+    // Close after selecting a link.
+    menu.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => setOpen(false))
+    );
+
+    // Close on Escape.
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+  }
+</script>
+
 <style>
-  .navbar {
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     width: 100%;
-    background-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--color-line);
+    transition: background-color var(--transition-base), border-color var(--transition-base);
+  }
+  /* When the full-screen menu is open, let the bar blend into the overlay. */
+  .nav.is-open {
+    background-color: transparent;
+    border-bottom-color: transparent;
   }
 
-  .navbar-inner {
+  .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 1.5em;
-    gap: 2em;
+    gap: 1.5em;
+    padding-block: 0.625em;
   }
 
-  .navbar-logo {
-    display: block;
+  /* Bar controls sit above the overlay so they stay visible / clickable. */
+  .nav-logo,
+  .nav-call,
+  .nav-burger {
+    position: relative;
+    z-index: 2;
+  }
+
+  .nav-logo {
     flex-shrink: 0;
+    display: block;
   }
-
-  .navbar-logo img {
-    width: 16.75em; /* 268px */
+  .nav-logo img {
+    width: 9.25em;
     height: auto;
-    max-height: 4.125em; /* 66px */
     object-fit: contain;
   }
 
-  .navbar-menu ul {
+  .nav-right {
     display: flex;
     align-items: center;
-    gap: 1.8125em; /* ~29px */
+    gap: 0.875em;
   }
 
+  /* Call us button */
+  .nav-call {
+    padding: 0.6em 1.1em;
+  }
+  .nav-call-icon {
+    width: 1.1em;
+    height: 1.1em;
+    flex-shrink: 0;
+  }
+
+  /* Burger */
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3125em;
+    width: 2.75em;
+    height: 2.75em;
+    padding: 0;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-line);
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+  .nav-burger:hover { background-color: var(--color-warm-white); }
+  .nav-burger span {
+    display: block;
+    height: 2px;
+    width: 1.375em;
+    margin-inline: auto;
+    background-color: var(--color-petrol);
+    border-radius: 2px;
+    transition: transform var(--transition-base), opacity var(--transition-fast);
+  }
+
+  /* ── Full-screen overlay menu ─────────────────────────────────────────── */
+  .nav-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.75em;
+    padding: 6em var(--container-padding) 3.5em;
+    background-color: var(--color-warm-white);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, visibility 0.22s ease;
+  }
+  .nav.is-open .nav-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1em;
+    text-align: center;
+  }
   .nav-link {
-    position: relative;
     display: inline-block;
-    font-family: var(--font-accent);
-    font-size: var(--fs-sm);
+    padding: 0.12em 0.3em;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(2.25em, 6vw, 3.5em);
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    color: var(--color-petrol);
+    opacity: 0;
+    transform: translateY(14px);
+    /* close transition — quick, so the menu dismisses without lag */
+    transition: color var(--transition-fast), opacity 0.18s ease, transform 0.18s ease;
+  }
+  .nav-link:hover { color: var(--color-mustard); }
+  .nav.is-open .nav-link {
+    opacity: 1;
+    transform: none;
+    /* open transition — slower, with the staggered entrance */
+    transition: color var(--transition-fast), opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav.is-open li:nth-child(1) .nav-link { transition-delay: 0.08s; }
+  .nav.is-open li:nth-child(2) .nav-link { transition-delay: 0.13s; }
+  .nav.is-open li:nth-child(3) .nav-link { transition-delay: 0.18s; }
+  .nav.is-open li:nth-child(4) .nav-link { transition-delay: 0.23s; }
+
+  .nav-menu-foot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25em;
+    margin-top: 1.25em;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  .nav.is-open .nav-menu-foot {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.28s;
+  }
+  .nav-menu-email {
+    font-size: var(--fs-md);
+    font-weight: 500;
     color: var(--color-grey);
-    line-height: 1.25;
-    text-decoration: none;
     transition: color var(--transition-fast);
   }
+  .nav-menu-email:hover { color: var(--color-petrol); }
+  .nav-menu-cta { padding-inline: 2em; }
 
-  .nav-link:hover {
-    color: var(--color-petrol);
+  /* Burger → X (0.4375em = exact half of the 3-bar stack, so the bars cross at centre) */
+  .nav.is-open .nav-burger span:nth-child(1) {
+    transform: translateY(0.4375em) rotate(45deg);
   }
-
-  .nav-link.active {
-    color: var(--color-charcoal);
-    font-weight: 700;
-  }
-
-  /* Underline sweep — pure CSS scaleX transition */
-  .nav-link[data-underline-link]::before {
-    content: "";
-    position: absolute;
-    bottom: -0.25em;
-    left: 0;
-    width: 100%;
-    height: 0.0625em; /* 1px @ 16 */
-    background-color: currentColor;
-    transform: scaleX(0) rotate(0.001deg);
-    transform-origin: right;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0, 1);
-  }
-
-  .nav-link.active[data-underline-link]::before {
-    transform: scaleX(1) rotate(0.001deg);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .nav-link[data-underline-link]:hover::before {
-      transform: scaleX(1) rotate(0.001deg);
-      transform-origin: left;
-    }
-  }
-
-  .nav-link[data-underline-link]:focus-visible {
-    outline: 0.125rem solid var(--color-mustard);
-    outline-offset: 0.25rem;
-    border-radius: 2px;
+  .nav.is-open .nav-burger span:nth-child(2) { opacity: 0; }
+  .nav.is-open .nav-burger span:nth-child(3) {
+    transform: translateY(-0.4375em) rotate(-45deg);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .nav-link[data-underline-link]::before {
-      transition: none;
-    }
-  }
-
-  .navbar-cta {
-    padding: 0.75em 2em;
-    background-color: var(--color-petrol);
-    color: var(--color-mustard);
-  }
-
-  .navbar-cta:hover {
-    background-color: #00263b;
-  }
-
-  @media (max-width: 991px) {
-    .navbar-menu {
-      display: none;
+    .nav-link,
+    .nav-menu-foot {
+      transition: opacity var(--transition-fast);
+      transform: none;
     }
   }
 
   @media (max-width: 767px) {
-    .navbar-inner {
-      gap: 1em;
-    }
-    .navbar-cta {
-      padding: 0.625em 1.25em;
-    }
+    .nav-call span { display: none; }
+    .nav-call { padding: 0.6em 0.75em; }
+    .nav-call-icon { width: 1.25em; height: 1.25em; }
+    .nav-logo img { width: 8.25em; }
   }
 </style>

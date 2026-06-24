@@ -1,218 +1,167 @@
 ---
-const companyLinks = [
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Services" },
-  { href: "/team", label: "Our Team" },
-];
+import { Image } from "astro:assets";
+import accreditations from "../assets/images/accreditations.png";
 
-const knowMoreLinks = [
-  { href: "/support", label: "Support" },
-  { href: "/privacy", label: "Privacy Policy" },
-  { href: "/terms", label: "Terms & conditions" },
+const siteLinks = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/advice", label: "Advice" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <div class="footer-row">
-      <div class="footer-about">
-        <div class="footer-logo-lockup">
-          <img
-            src="/assets/images/logo-azar-inverted.png"
-            alt="Azar Fire"
-            width="220"
-            height="55"
-            class="footer-logo"
-          />
-          <p class="footer-logo-sub">Nationwide fire safety</p>
-        </div>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img
+          src="/assets/images/logo-azar-inverted.png"
+          alt="Azar Fire Ltd"
+          width="220"
+          height="55"
+          class="footer-logo"
+        />
         <p class="footer-tagline">
-          Nationwide fire safety consultancy and passive fire protection — keeping your buildings, your
-          people and your compliance covered.
+          Specialist passive fire protection installation and maintenance for buildings across the
+          UK. FIRAS-certified with full O&amp;M documentation on every project.
         </p>
+        <p class="footer-specialism">Passive fire protection specialists</p>
       </div>
 
-      <nav class="footer-nav" aria-label="Company">
-        <p class="footer-nav-title">Company</p>
+      <nav class="footer-col" aria-label="Site">
+        <p class="footer-col-title">Site</p>
         <ul>
-          {companyLinks.map((link) => (
-            <li><a href={link.href} data-underline-link>{link.label}</a></li>
+          {siteLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
           ))}
         </ul>
       </nav>
 
-      <nav class="footer-nav" aria-label="Know More">
-        <p class="footer-nav-title">Know More</p>
+      <div class="footer-col">
+        <p class="footer-col-title">Get in touch</p>
         <ul>
-          {knowMoreLinks.map((link) => (
-            <li><a href={link.href} data-underline-link>{link.label}</a></li>
-          ))}
+          <li><a href="mailto:info@azarfire.co.uk">info@azarfire.co.uk</a></li>
+          <li><span class="footer-muted">Nationwide UK support</span></li>
         </ul>
-      </nav>
+      </div>
     </div>
 
-    <hr class="footer-divider" />
-
-    <p class="footer-copyright">© {year} Azar Fire Ltd. All rights reserved.</p>
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; {year} Azar Fire Ltd. All rights reserved.</p>
+      <div class="footer-accred" aria-label="Accreditations and certifications">
+        <Image
+          src={accreditations}
+          alt="FIRAS UKAS Product Certification, IFSM Affiliate Member, and CHAS Accredited Contractor"
+          widths={[600, 900, 1200]}
+          sizes="(max-width: 767px) 80vw, 26em"
+          loading="lazy"
+        />
+      </div>
+    </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    background-color: var(--color-petrol);
+    background-color: var(--color-petrol-deep);
     color: var(--color-white);
-    padding-block: 6.25em 1.25em;
+    padding-block: 4.5em 1.75em;
   }
 
-  .footer-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 4em;
-    align-items: center;
-  }
-
-  .footer-row {
+  .footer-top {
     display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 6em;
-    width: 100%;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 3em;
+    padding-bottom: 3em;
+    border-bottom: 1px solid var(--color-line-light);
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
-  }
-
-  .footer-about {
-    display: flex;
-    flex-direction: column;
     gap: 1.25em;
-    max-width: 22.25em;
+    max-width: 26em;
   }
-
-  .footer-logo-lockup {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-  }
-
   .footer-logo {
-    width: 13.75em;
+    width: 11em;
     height: auto;
   }
-
-  .footer-logo-sub {
-    font-family: var(--font-accent);
-    font-weight: 600;
-    font-size: var(--fs-sm);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+  .footer-tagline {
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .footer-specialism {
+    font-family: var(--font-script);
+    font-size: 1.5em;
     color: var(--color-mustard);
     line-height: 1;
   }
 
-  .footer-tagline {
-    font-family: var(--font-accent);
-    font-weight: 400;
+  .footer-col-title {
     font-size: var(--fs-sm);
-    line-height: 1.6;
-    color: var(--color-white);
-  }
-
-  .footer-nav-title {
-    font-family: var(--font-accent);
     font-weight: 700;
-    font-size: var(--fs-md);
-    color: var(--color-white);
-    margin-bottom: 1.5em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 1.25em;
   }
-
-  .footer-nav ul {
+  .footer-col ul {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    gap: 0.875em;
+  }
+  .footer-col a {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.85);
+    transition: color var(--transition-fast);
+  }
+  .footer-col a:hover { color: var(--color-mustard); }
+  .footer-muted {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.55);
   }
 
-  .footer-nav a {
-    position: relative;
-    display: inline-block;
-    font-family: var(--font-accent);
-    font-weight: 500;
-    font-size: var(--fs-sm);
-    color: var(--color-white);
-    opacity: 0.85;
-    text-decoration: none;
-    transition: opacity var(--transition-fast), color var(--transition-fast);
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5em 2em;
+    flex-wrap: wrap;
+    padding-top: 1.75em;
   }
-
-  .footer-nav a:hover {
-    opacity: 1;
-    color: var(--color-mustard);
-  }
-
-  /* Underline sweep — pure CSS scaleX transition */
-  .footer-nav a[data-underline-link]::before {
-    content: "";
-    position: absolute;
-    bottom: -0.25em;
-    left: 0;
-    width: 100%;
-    height: 0.0625em;
-    background-color: currentColor;
-    transform: scaleX(0) rotate(0.001deg);
-    transform-origin: right;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0, 1);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .footer-nav a[data-underline-link]:hover::before {
-      transform: scaleX(1) rotate(0.001deg);
-      transform-origin: left;
-    }
-  }
-
-  .footer-nav a[data-underline-link]:focus-visible {
-    outline: 0.125rem solid var(--color-mustard);
-    outline-offset: 0.25rem;
-    border-radius: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .footer-nav a[data-underline-link]::before {
-      transition: none;
-    }
-  }
-
-  .footer-divider {
-    width: 100%;
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
   .footer-copyright {
-    font-family: var(--font-accent);
     font-size: var(--fs-sm);
-    color: var(--color-white);
-    opacity: 0.85;
-    text-align: center;
-    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .footer-accred {
+    background-color: var(--color-white);
+    border-radius: var(--radius-pill);
+    padding: 0.7em 1.4em;
+    display: flex;
+    align-items: center;
+  }
+  .footer-accred :global(img) {
+    width: 26em;
+    max-width: 100%;
+    height: auto;
   }
 
   @media (max-width: 991px) {
-    .footer-row {
+    .footer-top {
       grid-template-columns: 1fr 1fr;
-      gap: 3em;
+      gap: 2.5em;
     }
-    .footer-about {
-      grid-column: 1 / -1;
-    }
+    .footer-brand { grid-column: 1 / -1; }
   }
 
   @media (max-width: 767px) {
-    .footer-row {
-      grid-template-columns: 1fr;
-      gap: 2em;
-    }
-    .footer {
-      padding-block: 3em 1em;
-    }
+    .footer-top { grid-template-columns: 1fr; gap: 2em; }
+    .footer-bottom { justify-content: center; text-align: center; }
+    .footer-accred { width: 100%; justify-content: center; padding: 0.7em 1em; }
+    .footer-accred :global(img) { width: 22em; }
   }
 </style>

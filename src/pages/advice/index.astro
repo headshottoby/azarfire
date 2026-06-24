@@ -1,101 +1,84 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-
-const siteUrl = 'https://azarfire.co.uk';
-const canonicalUrl = `${siteUrl}/advice`;
-const pageTitle = 'Fire Safety Advice for UK Businesses | Azar Fire';
-const pageDescription =
-  'Practical fire safety guides and regulatory advice from Azar Fire. Covering passive fire protection, risk assessments, fire doors, and compliance under UK law.';
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-    { '@type': 'ListItem', position: 2, name: 'Advice', item: canonicalUrl },
-  ],
-};
-
-const posts = [
-  {
-    slug: 'what-is-a-passive-fire-protection-provider',
-    title: 'What Is a Passive Fire Protection Provider?',
-    excerpt:
-      'Passive fire protection (PFP) is the system of built-in fire-safety measures that contain fire and smoke within a building — without any active intervention. Here\'s what a PFP provider does and why you need one.',
-    date: '2022-12-29',
-    dateFormatted: '29 December 2022',
-    category: 'Passive Fire Protection',
-    readTime: '3 min read',
-  },
-  {
-    slug: '5-common-fire-safety-regulations-broken-by-businesses',
-    title: '5 Common Fire Safety Regulations Broken by Businesses',
-    excerpt:
-      'Many UK businesses unknowingly violate the Regulatory Reform (Fire Safety) Order 2005. From blocked exits to absent risk assessments, here are the five most common breaches — and how to avoid them.',
-    date: '2022-11-25',
-    dateFormatted: '25 November 2022',
-    category: 'Fire Safety Regulations',
-    readTime: '4 min read',
-  },
-];
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { Image } from "astro:assets";
+import { articles } from "../../data/advice";
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
-  <Fragment slot="head">
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="Azar Fire" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={pageDescription} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
-  </Fragment>
-
+<BaseLayout
+  title="Advice — Azar Fire Ltd"
+  description="Plain-English passive fire protection advice, surveys guidance and compliance insights from Azar Fire Ltd."
+  path="/advice"
+>
+  <a href="#main" class="skip-link">Skip to content</a>
   <Navbar />
 
-  <main>
-    <header class="advice-header">
-      <div class="container advice-header-inner">
-        <p class="advice-eyebrow">Azar Fire Advice</p>
-        <h1 class="advice-heading">Fire Safety Guides &amp; Regulatory Advice</h1>
-        <p class="advice-sub">
-          Practical, expert-led articles on fire safety compliance, passive fire protection, and
-          keeping your building safe under UK law.
+  <main id="main">
+    <!-- ── HERO ──────────────────────────────────────────────────────────── -->
+    <section class="adv-hero" aria-labelledby="adv-hero-heading">
+      <div class="container adv-hero-inner" data-reveal>
+        <p class="eyebrow adv-hero-eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Advice
+        </p>
+        <h1 id="adv-hero-heading" class="adv-hero-heading">
+          Plain-English guidance for passive fire protection decisions.
+        </h1>
+        <p class="adv-hero-sub">
+          Practical notes on surveys, compartmentation, fire stopping and compliance records —
+          written for duty holders, property teams and project leads.
         </p>
       </div>
-    </header>
+    </section>
 
-    <section class="advice-grid-section">
-      <div class="container advice-grid-inner">
-        <ul class="advice-grid" role="list">
-          {
-            posts.map((post) => (
-              <li>
-                <article class="advice-card">
-                  <div class="advice-card-meta">
-                    <span class="advice-card-category">{post.category}</span>
-                    <span class="advice-card-sep" aria-hidden="true">·</span>
-                    <time datetime={post.date} class="advice-card-date">{post.dateFormatted}</time>
-                    <span class="advice-card-sep" aria-hidden="true">·</span>
-                    <span class="advice-card-read">{post.readTime}</span>
-                  </div>
-                  <h2 class="advice-card-title">
-                    <a href={`/advice/${post.slug}`}>{post.title}</a>
-                  </h2>
-                  <p class="advice-card-excerpt">{post.excerpt}</p>
-                  <a href={`/advice/${post.slug}`} class="advice-card-link" aria-label={`Read: ${post.title}`}>
-                    Read article →
-                  </a>
-                </article>
-              </li>
-            ))
-          }
+    <!-- ── ARTICLES ──────────────────────────────────────────────────────── -->
+    <section class="adv-list" aria-labelledby="adv-list-heading">
+      <div class="container">
+        <header class="adv-list-header" data-reveal>
+          <p class="script adv-list-label">Latest articles</p>
+          <h2 id="adv-list-heading" class="adv-list-heading">
+            Insights to help you plan, record and remediate confidently.
+          </h2>
+        </header>
+
+        <ul class="adv-grid">
+          {articles.map((post, i) => (
+            <li class="adv-card" data-reveal data-reveal-delay={`${(i % 3) * 90}ms`}>
+              <a href={`/advice/${post.slug}`} class="adv-card-link">
+                <div class="adv-card-media">
+                  <Image
+                    src={post.image}
+                    alt={post.imageAlt}
+                    widths={[400, 600, 800]}
+                    sizes="(max-width: 767px) 100vw, 33vw"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="adv-card-body">
+                  <p class="adv-card-meta">
+                    <span class="adv-card-cat">{post.category}</span>
+                    <span class="adv-card-dot" aria-hidden="true">•</span>
+                    <span class="adv-card-read">{post.readTime}</span>
+                  </p>
+                  <h3 class="adv-card-title">{post.title}</h3>
+                  <p class="adv-card-excerpt">{post.excerpt}</p>
+                  <span class="adv-card-cta" aria-hidden="true">Read article →</span>
+                </div>
+              </a>
+            </li>
+          ))}
         </ul>
+      </div>
+    </section>
+
+    <!-- ── CTA ───────────────────────────────────────────────────────────── -->
+    <section class="adv-cta-section">
+      <div class="container">
+        <div class="adv-cta" data-reveal>
+          <h2 class="adv-cta-heading">Need advice about a live building or project?</h2>
+          <a href="/#contact" class="btn btn-primary">Ask Azar Fire</a>
+        </div>
       </div>
     </section>
   </main>
@@ -104,157 +87,184 @@ const posts = [
 </BaseLayout>
 
 <style>
-  /* ── HEADER ───────────────────────────────────────────────────────────── */
-
-  .advice-header {
+  .skip-link {
+    position: absolute;
+    left: 0.75em;
+    top: -3em;
+    z-index: 100;
+    padding: 0.6em 1.1em;
     background-color: var(--color-petrol);
-    padding-block: 4em 4.5em;
-  }
-
-  .advice-header-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    max-width: 36em;
-  }
-
-  .advice-eyebrow {
-    font-family: var(--font-accent);
-    font-size: 0.75em;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--color-mustard);
-    margin: 0;
-  }
-
-  .advice-heading {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: clamp(2em, 4.5vw, 3em);
     color: var(--color-white);
-    line-height: 1.1;
-    margin: 0;
-  }
-
-  .advice-sub {
-    font-family: var(--font-accent);
+    border-radius: var(--radius-sm);
     font-size: var(--fs-sm);
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.7;
-    margin: 0;
+    font-weight: 600;
+    transition: top var(--transition-fast);
   }
+  .skip-link:focus { top: 0.75em; }
 
-  /* ── GRID ─────────────────────────────────────────────────────────────── */
-
-  .advice-grid-section {
-    background-color: var(--color-warm-white);
-    padding-block: 5em 6em;
+  /* ── HERO ───────────────────────────────────────────────────────────── */
+  .adv-hero {
+    background-color: var(--color-petrol);
+    color: var(--color-white);
   }
-
-  .advice-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2em;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  /* ── CARD ─────────────────────────────────────────────────────────────── */
-
-  .advice-card {
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    padding: 2em;
+  .adv-hero-inner {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.07);
-    transition: box-shadow 0.2s, transform 0.2s;
+    align-items: flex-start;
+    gap: 1.25em;
+    padding-block: 5em 4.5em;
+    max-width: 40em;
+  }
+  .adv-hero-eyebrow { color: var(--color-mustard); }
+  .eyebrow-dot {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: var(--color-mustard);
+  }
+  .adv-hero-heading {
+    font-size: clamp(2em, 4.4vw, 3em);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--color-white);
+  }
+  .adv-hero-sub {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: rgba(255, 255, 255, 0.78);
   }
 
-  .advice-card:hover {
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+  /* ── ARTICLES ───────────────────────────────────────────────────────── */
+  .adv-list {
+    background-color: var(--color-white);
+    padding-block: 6em;
   }
-
-  .advice-card-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.4em;
-    flex-wrap: wrap;
+  .adv-list-header {
+    max-width: 40em;
+    margin-bottom: 3em;
   }
-
-  .advice-card-category {
-    font-family: var(--font-accent);
-    font-size: 0.75em;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--color-mustard);
+  .adv-list-label {
+    font-size: 1.75em;
+    margin-bottom: 0.2em;
   }
-
-  .advice-card-sep {
-    color: rgba(0, 0, 0, 0.25);
-    font-size: 0.8em;
-    user-select: none;
-  }
-
-  .advice-card-date,
-  .advice-card-read {
-    font-family: var(--font-accent);
-    font-size: 0.8125em;
-    color: rgba(0, 0, 0, 0.5);
-  }
-
-  .advice-card-title {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: var(--fs-xl);
+  .adv-list-heading {
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    line-height: 1.08;
     color: var(--color-petrol);
-    line-height: 1.2;
-    margin: 0;
   }
 
-  .advice-card-title a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.2s;
+  .adv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
   }
+  .adv-card {
+    display: flex;
+  }
+  .adv-card-link {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+  .adv-card-link:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .adv-card-media {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background-color: var(--color-warm-white);
+  }
+  .adv-card-media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+  }
+  .adv-card-link:hover .adv-card-media :global(img) { transform: scale(1.04); }
 
-  .advice-card-title a:hover { color: var(--color-mustard); }
-
-  .advice-card-excerpt {
-    font-family: var(--font-accent);
-    font-size: var(--fs-sm);
-    color: #4a4a4a;
-    line-height: 1.7;
-    margin: 0;
+  .adv-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625em;
+    padding: 1.5em 1.5em 1.75em;
     flex: 1;
   }
-
-  .advice-card-link {
-    font-family: var(--font-accent);
+  .adv-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
     font-size: var(--fs-sm);
+  }
+  .adv-card-cat {
     font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-mustard);
+    font-size: var(--fs-xs);
+  }
+  .adv-card-dot { color: var(--color-grey-soft); }
+  .adv-card-read { color: var(--color-grey-soft); font-size: var(--fs-xs); }
+  .adv-card-title {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    line-height: 1.2;
     color: var(--color-petrol);
-    text-decoration: none;
-    letter-spacing: 0.3px;
-    align-self: flex-start;
-    transition: color 0.2s;
+  }
+  .adv-card-excerpt {
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    color: var(--color-grey);
+    flex: 1;
+  }
+  .adv-card-cta {
+    margin-top: 0.25em;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--color-petrol);
+    transition: color var(--transition-fast);
+  }
+  .adv-card-link:hover .adv-card-cta { color: var(--color-mustard); }
+
+  /* ── CTA ────────────────────────────────────────────────────────────── */
+  .adv-cta-section {
+    background-color: var(--color-warm-white);
+    padding-block: 5em;
+  }
+  .adv-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    flex-wrap: wrap;
+    background-color: var(--color-petrol);
+    border-radius: var(--radius-lg);
+    padding: 2.75em 3em;
+  }
+  .adv-cta-heading {
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-white);
+    max-width: 18em;
   }
 
-  .advice-card-link:hover { color: var(--color-mustard); }
-
-  /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
-
+  /* ── RESPONSIVE ─────────────────────────────────────────────────────── */
+  @media (max-width: 991px) {
+    .adv-list { padding-block: 4.5em; }
+    .adv-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 767px) {
-    .advice-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .advice-header { padding-block: 2.5em 3em; }
+    .adv-hero-inner { padding-block: 3em 3em; }
+    .adv-grid { grid-template-columns: 1fr; }
+    .adv-list-heading { font-size: 2em; }
+    .adv-cta { flex-direction: column; align-items: flex-start; padding: 2em; }
+    .adv-cta .btn { width: 100%; }
   }
 </style>

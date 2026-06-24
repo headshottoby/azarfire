@@ -1,67 +1,60 @@
 ---
 ---
 
-<section class="contact" aria-labelledby="contact-heading">
-  <div class="container">
-    <p class="contact-decorative" aria-hidden="true">Contact Us</p>
-  </div>
-
+<section class="contact" id="contact" aria-labelledby="contact-heading">
   <div class="container contact-inner">
     <div class="contact-info" data-reveal>
-      <h2 id="contact-heading" class="contact-heading">Find us</h2>
+      <p class="script contact-label">Contact</p>
+      <h2 id="contact-heading" class="contact-heading">
+        Ready to discuss your passive fire protection requirements?
+      </h2>
+      <p class="contact-intro">
+        Tell us about your building or project. Our team will help you understand the right scope of
+        work and what is needed to get compliant — with no jargon and no pressure.
+      </p>
 
-      <ul class="contact-list">
-        <li class="contact-card">
-          <img src="/assets/images/icon-call.svg" alt="" class="contact-icon" width="74" height="74" />
-          <div class="contact-card-text">
-            <p class="contact-card-label">Call Us</p>
-            <a href="tel:+441522530048" class="contact-card-value">01522 530048</a>
-          </div>
+      <ul class="contact-details">
+        <li>
+          <a href="mailto:info@azarfire.co.uk" class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 6.5A1.5 1.5 0 014.5 5h15A1.5 1.5 0 0121 6.5v11a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 17.5v-11z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="contact-detail-text">
+              <span class="contact-detail-label">Email</span>
+              <span class="contact-detail-value">info@azarfire.co.uk</span>
+            </span>
+          </a>
         </li>
-
-        <li class="contact-card">
-          <img src="/assets/images/icon-email.svg" alt="" class="contact-icon" width="74" height="74" />
-          <div class="contact-card-text">
-            <p class="contact-card-label">Email Now</p>
-            <a href="mailto:info@azarfire.co.uk" class="contact-card-value">info@azarfire.co.uk</a>
-          </div>
-        </li>
-
-        <li class="contact-card">
-          <img src="/assets/images/icon-address.svg" alt="" class="contact-icon" width="74" height="74" />
-          <div class="contact-card-text">
-            <p class="contact-card-label">Address</p>
-            <p class="contact-card-value">1 Newlin Business Park, Exchange Road, Lincoln, LN6 3AB</p>
-          </div>
+        <li>
+          <a href="tel:+441522530048" class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 005.5 5.5l1.5-2 4 1.5v3a2 2 0 01-2 2A16 16 0 014.5 5.5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="contact-detail-text">
+              <span class="contact-detail-label">Phone</span>
+              <span class="contact-detail-value">01522 530048</span>
+            </span>
+          </a>
         </li>
       </ul>
     </div>
 
-    <div class="contact-form-area" data-reveal>
-      <div class="contact-cta-text">
-        <h2 class="contact-cta-heading">
-          Let&rsquo;s take fire safety <span class="contact-cta-accent">off your plate.</span>
-        </h2>
-        <p class="contact-cta-sub">
-          Get in touch and we&rsquo;ll have a no-obligation chat about your building — and what, if anything,
-          needs doing.
-        </p>
-      </div>
-
+    <div class="contact-card" data-reveal data-reveal-delay="100ms">
+      <!-- TODO: wire `action` to a form endpoint (e.g. Formspree / Vercel function) to receive submissions -->
       <form class="contact-form" action="#" method="post">
-        <label class="contact-field">
-          <span class="sr-only">Name</span>
-          <input type="text" name="name" placeholder="Name" required />
+        <label class="field">
+          <span class="field-label">Name</span>
+          <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
         </label>
-        <label class="contact-field">
-          <span class="sr-only">Email</span>
-          <input type="email" name="email" placeholder="Email" required />
+        <label class="field">
+          <span class="field-label">Email</span>
+          <input type="email" name="email" placeholder="you@company.co.uk" autocomplete="email" required />
         </label>
-        <label class="contact-field">
-          <span class="sr-only">Message</span>
-          <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        <label class="field">
+          <span class="field-label">How can we help?</span>
+          <textarea name="message" rows="4" placeholder="Tell us about your building or project…" required></textarea>
         </label>
-        <button type="submit" class="btn btn-charcoal contact-submit">Send Message</button>
+        <button type="submit" class="btn btn-primary contact-submit">Send enquiry</button>
       </form>
     </div>
   </div>
@@ -69,204 +62,138 @@
 
 <style>
   .contact {
-    background-color: var(--color-warm-white);
-    padding-block: 4.875em 4em;
-    overflow: hidden;
-  }
-
-  .contact-decorative {
-    font-family: var(--font-script);
-    font-size: var(--fs-script); /* 64px */
-    color: var(--color-mustard);
-    font-weight: 400;
-    line-height: 1;
-    transform: rotate(-11deg);
-    transform-origin: left center;
-    margin-bottom: 0;
+    background-color: var(--color-white);
+    padding-block: 6em;
   }
 
   .contact-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    column-gap: 4em;
-    row-gap: 2.5em;
+    gap: 4em;
     align-items: start;
-    padding-top: 0.5em;
   }
 
-  /* Dissolve wrappers so heading/list and cta-text/form sit directly
-     in the parent grid and share the same row boundaries */
-  .contact-info,
-  .contact-form-area {
-    display: contents;
+  .contact-label {
+    font-size: 1.75em;
+    margin-bottom: 0.15em;
   }
-
   .contact-heading {
-    grid-column: 1;
-    grid-row: 1;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: var(--fs-xl); /* 36px */
-    color: var(--color-charcoal);
-    line-height: 1.2;
-    align-self: end; /* sit at the bottom of row 1 so it reads close to the cards */
-  }
-
-  .contact-list {
-    grid-column: 1;
-    grid-row: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25em;
-    max-width: 24em; /* constrains cards so address wraps to 2-3 lines */
-  }
-
-  .contact-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75em;
-    padding: 0.75em 0.875em;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-charcoal);
-    border-radius: var(--radius-lg);
-  }
-
-  .contact-icon {
-    flex-shrink: 0;
-    width: 3.375em; /* 54px */
-    height: 3.375em;
-    object-fit: contain;
-  }
-
-  .contact-card-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    color: var(--color-charcoal);
-  }
-
-  .contact-card-label {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: var(--fs-md); /* 20px */
-    letter-spacing: 0.6px;
-  }
-
-  .contact-card-value {
-    font-family: var(--font-heading);
-    font-weight: 400;
-    font-size: var(--fs-sm); /* 16px */
-    line-height: 1.2;
-    color: var(--color-charcoal);
-  }
-
-  a.contact-card-value:hover {
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    line-height: 1.08;
     color: var(--color-petrol);
+    margin-bottom: 0.6em;
+    max-width: 12em;
+  }
+  .contact-intro {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-grey);
+    max-width: 32em;
+    margin-bottom: 2em;
   }
 
-  /* .contact-form-area is display:contents — layout handled by grid children */
-
-  .contact-cta-text {
-    grid-column: 2;
-    grid-row: 1;
+  .contact-details {
     display: flex;
     flex-direction: column;
     gap: 1em;
   }
-
-  .contact-cta-heading {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: var(--fs-xl); /* 36px */
-    line-height: 1.2;
-    color: var(--color-charcoal);
+  .contact-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 1em;
   }
-
-  .contact-cta-accent {
+  .contact-detail-icon {
+    display: grid;
+    place-items: center;
+    width: 3em;
+    height: 3em;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background-color: var(--color-warm-white);
+    border: 1px solid var(--color-line);
+    color: var(--color-petrol);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+  .contact-detail-icon svg { width: 1.375em; height: 1.375em; }
+  .contact-detail:hover .contact-detail-icon {
+    background-color: var(--color-petrol);
     color: var(--color-mustard);
-    text-decoration: underline;
-    text-underline-offset: 0.125em;
   }
-
-  .contact-cta-sub {
-    font-family: var(--font-heading);
-    font-size: var(--fs-sm); /* 16px */
-    color: var(--color-charcoal);
-    line-height: 1.5;
-  }
-
-  .contact-form {
-    grid-column: 2;
-    grid-row: 2;
+  .contact-detail-text {
     display: flex;
     flex-direction: column;
-    gap: 1.875em;
+    gap: 0.1em;
+  }
+  .contact-detail-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-grey-soft);
+  }
+  .contact-detail-value {
+    font-size: var(--fs-md);
+    font-weight: 600;
+    color: var(--color-petrol);
   }
 
-  .contact-field input,
-  .contact-field textarea {
-    width: 100%;
-    padding: 1.125em 1.25em;
-    background-color: #ffffff;
-    border: 1px solid var(--color-charcoal);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    font-family: var(--font-accent);
+  /* Form card */
+  .contact-card {
+    background-color: var(--color-warm-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    padding: 2.25em;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45em;
+  }
+  .field-label {
     font-size: var(--fs-sm);
+    font-weight: 600;
     color: var(--color-charcoal);
-    line-height: 1.25;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    padding: 0.875em 1em;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-base);
+    color: var(--color-charcoal);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
     resize: vertical;
   }
-
-  .contact-field input::placeholder,
-  .contact-field textarea::placeholder {
-    color: var(--color-charcoal);
-    opacity: 0.6;
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--color-grey-soft); }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--color-mustard);
+    box-shadow: 0 0 0 3px rgba(217, 166, 41, 0.18);
   }
-
-  .contact-field textarea {
-    min-height: 5.5em;
-  }
-
   .contact-submit {
     align-self: flex-start;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    padding: 0.75em 1.5em;
+    margin-top: 0.25em;
   }
 
   @media (max-width: 991px) {
-    .contact-inner {
-      grid-template-columns: 1fr;
-      grid-template-rows: none;
-      gap: 2.5em;
-      padding-top: 1em;
-    }
-    /* Reset explicit grid placement so DOM order flows naturally (Find us → cards → form heading → form) */
-    .contact-heading,
-    .contact-list,
-    .contact-cta-text,
-    .contact-form {
-      grid-column: 1;
-      grid-row: auto;
-      align-self: auto;
-    }
-    .contact-list {
-      max-width: 100%;
-    }
-    .contact-decorative {
-      font-size: 3em;
-    }
+    .contact { padding-block: 4.5em; }
+    .contact-inner { grid-template-columns: 1fr; gap: 2.5em; }
+    .contact-heading { font-size: 2.25em; max-width: none; }
   }
 
   @media (max-width: 767px) {
-    .contact-heading,
-    .contact-cta-heading {
-      font-size: 1.875em;
-    }
-    .contact-card-label {
-      font-size: 1.125em;
-    }
+    .contact-heading { font-size: 2em; }
+    .contact-card { padding: 1.5em; }
+    .contact-submit { align-self: stretch; }
   }
 </style>

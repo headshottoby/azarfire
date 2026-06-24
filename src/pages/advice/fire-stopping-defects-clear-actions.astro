@@ -1,0 +1,58 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro";
+import { articles } from "../../data/advice";
+
+const article = articles.find((a) => a.slug === "fire-stopping-defects-clear-actions")!;
+---
+
+<PostLayout article={article}>
+  <p class="lead">
+    Finding fire stopping defects is the easy part. The harder — and more useful — part is turning a
+    long list of issues into clear, prioritised actions a contractor can actually close out. Here's
+    how to bridge that gap.
+  </p>
+
+  <h2>Why a list of defects isn't enough</h2>
+  <p>
+    A raw register of breaches tells you that something is wrong, but not what to do first or how to
+    fix it. Without priority and context, urgent issues get the same attention as minor ones, works
+    stall, and the same defects reappear in the next survey. The goal is to move from
+    <strong>"here's what's wrong"</strong> to <strong>"here's what to do, in what order, and how."</strong>
+  </p>
+
+  <h2>Prioritise by risk, not by count</h2>
+  <p>
+    Not every breach carries the same weight. A penetration on a protected escape route or a
+    compartment wall serving sleeping accommodation matters far more than a small gap in a low-risk
+    area. Prioritising by risk lets you tackle the issues that protect people first, and sequence the
+    rest sensibly within budget.
+  </p>
+  <ul>
+    <li><strong>Critical</strong> — breaches on escape routes or key compartment lines; address first.</li>
+    <li><strong>High</strong> — breaches that compromise the fire strategy but are lower exposure.</li>
+    <li><strong>Routine</strong> — minor defects to be picked up in planned works.</li>
+  </ul>
+
+  <h2>Record evidence a contractor can act on</h2>
+  <p>
+    A good defect record removes guesswork on site. For each item, capture:
+  </p>
+  <ul>
+    <li>A clear photo and a findable location reference</li>
+    <li>The substrate and the type of penetration (so the right system is used)</li>
+    <li>The proposed remedial approach and the standard it must meet</li>
+    <li>Any access or out-of-hours constraints</li>
+  </ul>
+  <p>
+    With this in hand, contractors can price accurately, mobilise once, and install the correct
+    approved system the first time.
+  </p>
+
+  <h2>Close the loop</h2>
+  <p>
+    Remediation isn't finished when the work is done — it's finished when it's evidenced. Re-inspect
+    completed works, capture close-out photographs against each reference, and file the
+    certification. That record becomes part of your building's compliance trail and saves time at the
+    next inspection.
+  </p>
+</PostLayout>
