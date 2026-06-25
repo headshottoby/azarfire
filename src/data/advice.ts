@@ -21,9 +21,9 @@ export interface Article {
 export const articles: Article[] = [
   {
     slug: "passive-fire-protection-basics",
-    title: "What's actually keeping your building safe from fire — and how to check (passive fire protection basics)",
+    title: "What's actually keeping your building safe from fire and how to check (passive fire protection basics)",
     excerpt:
-      "Most passive fire protection is invisible - built into the walls, doors and ceilings. Here's what it is, why it matters, and how to find out if yours is in good shape.",
+      "Most passive fire protection is invisible. It's built into the walls, doors and ceilings. Here's what it is, why it matters, and how to find out if yours is in good shape.",
     category: "Guidance",
     readTime: "4 min read",
     date: "2026-06-10",

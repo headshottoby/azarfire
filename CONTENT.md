@@ -27,7 +27,7 @@
 ## Footer
 
 - **Logo alt text:** Azar Fire Ltd
-- **Tagline:** We protect buildings from fire spread, and protect you from the risk and paperwork that comes with it. Certified work, full documentation, every time.
+- **Tagline:** We tell you straight whether your building's fire protection is doing its job. Certified work with full documentation.
 - **Specialism line (script):** Passive fire protection specialists
 - **Column "Site" links:** Home · Services · Advice · Contact
 - **Column "Get in touch":**
@@ -44,14 +44,15 @@
 ## Page meta
 
 - **Page title:** Azar Fire — Passive Fire Safety Consultancy
-- **Meta description:** Not sure if your building is properly protected against fire? Azar Fire is a UK passive fire protection specialist — checking, fixing and certifying fire doors, fire stopping and compartmentation across the UK.
+- **Meta description:** Not sure if your building is properly protected against fire? 
+Azar Fire is a UK passive fire protection specialist, checking, fixing and certifying fire doors, fire stopping and compartmentation across the UK.
 
 ## 1.1 Hero
 
 - **Eyebrow:** 
 - **Heading (line 1):** Passive Fire Protection.
 - **Heading (line 2, gold):** Built Right.
-- **Body:** If your building caught fire, would it hold the flames back long enough for everyone to get out safely? Azar Fire installs and checks the things that make that happen.
+- **Body:** Most buildings rely on fire protection that's never been checked. Azar Fire surveys, fixes and certifies the parts that actually stop fire spreading. We tell you exactly what state it's in, and what needs doing. 
 - **Primary button:** Speak with us  → jumps to Contact
 - **Secondary button:** What we offer  → goes to the Services page
 - **Trust badges (6):** FIRAS Certified · UK Nationwide · All building types
@@ -59,34 +60,36 @@
 ## 1.2 Core services
 
 - **Label (script):** Core services
-- **Heading:** Whatever your building, we can guide you towards the right fire stopping and compartmentation work.
-- **Intro:** You can't tell just by looking whether a building is properly protected against fire spreading. Most passive fire protection work, such as fire stopping and compartmentation, is hidden inside walls, ceilings and doors. We check it, fix it, and give you the paperwork to prove it. Here's how we help.
+- **Heading:** Whatever your building, we'll tell you exactly where the fire stopping and compartmentation stand.
+- **Intro:** You can't tell by looking whether a building is properly protected against fire spreading. Most passive fire protection work is hidden inside walls, ceilings and doors. We check it, fix it, and give you the paperwork to prove it. 
+
+Here's what we do.
+
 - _(image alt text)_ — Team band: Azar Fire operatives on site at a fire door
 
 **Service cards (6 — title + description):**
 
-1. **Passive Fire Surveys** — We check your building and tell you, in plain terms, exactly what's missing or damaged so you know your risk before anyone else points it out.
-2. **Fire Stopping Inspections)** — Had fire-stopping installed by someone else? We inspect it independently and tell you honestly whether it's actually safe, with photos to back it up.
-3. **Compartmentation Review** — Walls and floors are meant to stop fire spreading between rooms or flats. We find the gaps that let it through, before they become a problem.
-4. **Remediation Advice** — No vague reports. We tell you exactly what needs doing, in what order, so you can brief a contractor with confidence and control costs.
-5. **Compliance Reporting** — Clear, simple reports you can hand to your insurer, your fire risk assessor, or a regulator, proving the building is looked after.
-6. **Nationwide Coverage** — Managing several buildings or a whole portfolio? We work the same way everywhere, so you get consistent, comparable results across every site.
+1. **Find out where you stand (passive fire surveys)** — We check your building and tell you exactly what's missing or damaged. 
+2. **Check work that's already been done (fire stopping inspections)** — Had fire-stopping installed by someone else? We inspect it independently and tell you straight whether it's actually safe, with photos to prove it.
+3. **Check your fire barriers are intact (compartmentation review)** — Walls and floors are meant to stop fire spreading between rooms or flats. We find the gaps that let it through, before they become a problem.
+4. **Get a clear plan to fix problems (remediation advice)** — We tell you exactly what needs doing, in what order, and roughly what it'll cost so you can brief a contractor with confidence.
+5. **Get the paperwork you need (compliance reporting)** — Reports your insurer, fire risk assessor or a regulator can actually rely on.
+6. **Cover for multiple sites, anywhere in the UK** — Managing several buildings or a whole portfolio? We work the same way everywhere, so the results are consistent and comparable across every site.
 
 ## 1.3 Method / Our process
 
 - **Eyebrow:** Method
 - **Label (script):** Our process
-- **Heading:** A simple, four-step path from "not sure" to "fully covered."
-- **Intro:** You don't need to understand fire engineering. That's our job. 
-We just need you to know what happens at each stage, and what you'll have at the end.
+- **Heading:** A straightforward, four-step process. 
+- **Intro:** You don't need to understand fire engineering, that's our job. Here's exactly what happens at each stage, and what you'll have at the end of it.
 - _(image alt text)_ — Process band: Azar Fire engineer logging a fire door survey on the job-tracking app
 
 **Steps (4 — number + title + description):**
 
-1. **01 — Talk it through** — We find out what type of building you have and what you need, so the right people and materials are ready before we start.
-2. **02 — Check the building (passive fire survey)** — If needed, we look around your building for gaps, damaged doors and weak spots, and show you exactly where they are, with photos and a clear to-do list.
-3. **03 — Do the work** — Our trained team carries out the repairs using approved materials, and a supervisor checks every job before it's signed off.
-4. **04 — Hand you the proof** — You get full certification and a complete record of everything we did so you have proof of compliance whenever you need it.
+1. **01 — Talk it through** — We find out what type of building you have and what you need. 
+2. **02 — Check the building (passive fire survey)** — If needed, we go through your building for gaps, damaged doors and weak spots, and show you exactly where they are with photos and a clear to-do list.
+3. **03 — Do the work** — Our trained team carries out the repairs using approved materials.
+4. **04 — Hand you the proof** — You get full certification and a complete record of everything we did. Proof of compliance, ready whenever you need it.
 
 ## 1.4 Homepage section — What is passive fire protection?
 
@@ -95,8 +98,8 @@ We just need you to know what happens at each stage, and what you'll have at the
 
 - **Label (script):** Advice
 - **Heading:** What's actually stopping fire from spreading through your building?
-- **Paragraph 1:** Most of what keeps a fire contained isn't an alarm or a sprinkler. It's the building itself. Properly sealed walls, doors that actually close and latch, and pipework gaps that have been filled in rather than left open. None of it needs switching on. It just has to be there, and it has to be intact.
-- **Paragraph 2:** If you own or manage a building, it's your legal job to make sure this is in place, whether you put it there or inherited it from someone else. The problem is, you usually can't tell it's missing or damaged just by walking around. A quick survey tells you exactly where you stand, and gets it sorted if it isn't.
+- **Paragraph 1:** Most of what keeps a fire contained isn't an alarm or a sprinkler, it's the building itself. Properly sealed walls, doors that actually close and latch, pipework gaps filled in rather than left open. None of it needs switching on. It just has to be there, intact.
+- **Paragraph 2:** If you own or manage a building, you're legally responsible for this, whether you put it there or inherited it from someone else. You usually can't tell it's missing or damaged just by looking. A survey tells you exactly where you stand. 
 - **Sub-heading:** What this actually means for you
 - **Benefits (4):**
   1. Stops a fire in one room or flat from spreading to the rest of the building.
@@ -108,9 +111,8 @@ We just need you to know what happens at each stage, and what you'll have at the
 ## 1.5 Contact
 
 - **Label (script):** Contact
-- **Heading:** Not sure if your building needs attention? 
-Let's find out.
-- **Intro:** Tell us a bit about your building or project. We'll explain what's involved and what it would take to get you covered.
+- **Heading:** Get in touch. It's the simplest way to find out where you stand.
+- **Intro:** Tell us about your building or project. We'll tell you straight what's involved and what it'd take to get you covered.
 - **Email:** `info@azarfire.co.uk`
 - **Phone:** 01522 530048  → dials `+441522530048`
 - **Form — Field 1 label:** Name — _placeholder:_ Your name
@@ -134,7 +136,8 @@ Let's find out.
 
 - **Eyebrow:** Services
 - **Heading (with gold second half):** We check, fix and certify your building's passive fire protection.
-- **Body:** Whether you own a building, manage one, or are responsible for getting work signed off, we make passive fire protection simple to understand and easy to act on.
+- **Body:** Whether you own a building, manage one, or need work signed off, we tell you straight what's involved. 
+Single sites or whole portfolios, anywhere in the UK.
 - **Primary button:** Discuss a project  → jumps to homepage Contact
 - **Secondary button:** Read advice  → goes to the Advice blog
 - **Card title:** People usually come to us when they need to
@@ -148,21 +151,21 @@ Let's find out.
 ## 2.2 Core capabilities
 
 - **Label (script):** How we can help
-- **Heading:** Whatever stage you're at, we're here to support.
+- **Heading:** Whatever stage you're at, here's exactly what we do.
 
 **Capability cards (6 — title + description):**
 
-1. **Passive Fire Surveys** — We check your building and tell you, in plain terms, exactly what's missing or damaged so you know your risk before anyone else points it out.
-2. **Fire Stopping Inspections)** — Had fire-stopping installed by someone else? We inspect it independently and tell you honestly whether it's actually safe, with photos to back it up.
-3. **Compartmentation Review** — Walls and floors are meant to stop fire spreading between rooms or flats. We find the gaps that let it through, before they become a problem.
-4. **Remediation Advice** — No vague reports. We tell you exactly what needs doing, in what order, so you can brief a contractor with confidence and control costs.
-5. **Compliance Reporting** — Clear, simple reports you can hand to your insurer, your fire risk assessor, or a regulator, proving the building is looked after.
-6. **Nationwide Coverage** — Managing several buildings or a whole portfolio? We work the same way everywhere, so you get consistent, comparable results across every site.
+1. **Building surveys (passive fire surveys)** — We go through your building and tell you exactly what's protecting it from fire, and what isn't. Doors, walls, ceilings, anywhere pipes or cables pass through.
+2. **Checking existing work (fire stopping inspections)** — Already had work done? We inspect it independently, with photos and evidence, and tell you straight whether it was done properly.
+3. **Fire barrier checks (compartmentation reviews)** — We assess the walls, floors and hidden spaces meant to stop fire spreading, and flag anywhere that's been compromised.
+4. **A clear plan to fix it (remediation strategy)** — We turn problems into a straightforward, prioritised plan, so you or your contractor know exactly what to do first.
+5. **Reports you can actually use (compliance reporting)** — Clear reports for whoever needs to see them; your insurer, your fire risk assessor, your board, or a regulator.
+6. **Multi-site support (portfolio surveys)** — Managing more than one building? Same standard of check, same kind of report, across every site.
 
 ## 2.3 CTA
 
-- **Heading:** Not sure which service you need? No problem!
-- **Body:** Tell us what you know about the building or project, and we'll work out the right way forward together.
+- **Heading:** Not sure which service you need? No problem.
+- **Body:** Get in touch and we'll work out the right way forward.
 - **Button:** Contact Azar Fire  → jumps to homepage Contact
 
 ---
@@ -178,8 +181,8 @@ Let's find out.
 ## 3.1 Hero
 
 - **Eyebrow:** Advice
-- **Heading:** Fire safety, explained without the jargon.
-- **Body:** Straightforward answers to the questions building owners, landlords and managers actually ask us. From surveys, fire doors, sealing gaps, and proving you're covered.
+- **Heading:** Fire safety, simply explained.
+- **Body:** Direct answers to the questions building owners, landlords and managers actually ask us. Surveys, fire doors, sealing gaps, proving you're covered.
 
 ## 3.2 Latest articles
 
@@ -191,7 +194,7 @@ Let's find out.
 
 ## 3.3 CTA
 
-- **Heading:** Got a question about a building or a live project?
+- **Heading:** Got a question about a building or a live project? Ask Azar.
 - **Button:** Ask Azar Fire  → jumps to homepage Contact
 
 ---
@@ -211,20 +214,20 @@ Let's find out.
 - **Category:** Guidance
 - **Read time:** 4 min read
 - **Date:** 10 June 2026
-- **Title:** What's actually keeping your building safe from fire — and how to check (passive fire protection basics)
-- **Excerpt (used on the card + meta description):** Most passive fire protection is invisible - built into the walls, doors and ceilings. Here's what it is, why it matters, and how to find out if yours is in good shape.
+- **Title:** What's actually keeping your building safe from fire and how to check (passive fire protection basics)
+- **Excerpt (used on the card + meta description):** Most passive fire protection is invisible. It's built into the walls, doors and ceilings. Here's what it is, why it matters, and how to find out if yours is in good shape.
 - _(image alt text):_ A 'Fire door keep shut' sign on a fire door
 - **URL:** `/advice/passive-fire-protection-basics`
 
 **Body**
 
-_Lead:_ Most of what stops a fire from spreading through a building isn't an alarm or a sprinkler — it's the building itself. This is called **passive fire protection**. No buttons to press, no batteries to check. It just has to be there, intact, doing its job. Here's what it actually is, and why it's worth checking.
+_Lead:_ Most of what stops a fire from spreading through a building isn't an alarm or a sprinkler. It's the building itself. This is called **passive fire protection**. No buttons to press, no batteries to check. It just has to be there, intact, doing its job. Here's what it actually is, and why it's worth checking.
 
 ### The two types of fire safety
 
-Fire safety splits into two groups. **Active** measures do something when there's a fire — alarms go off, sprinklers spray, extinguishers get used. **Passive** measures are built into the structure itself and work all the time, without needing to be switched on: walls, floors and doors designed to hold back fire and smoke, and the seals that keep them doing their job.
+Fire safety splits into two groups. **Active** measures do something when there's a fire.  Alarms go off, sprinklers spray, extinguishers get used. **Passive** measures are built into the structure itself and work all the time, without needing to be switched on: walls, floors and doors designed to hold back fire and smoke, and the seals that keep them doing their job.
 
-Together, these divide a building into separate zones — known as **compartmentation** — so a fire that starts in one area is held back from spreading into the next — giving people time to get out, and giving firefighters a safer building to work in.
+Together, these divide a building into separate zones, known as **compartmentation**, so a fire that starts in one area is held back from spreading into the next giving people time to get out, and giving firefighters a safer building to work in.
 
 ### What it's actually made up of
 
@@ -236,17 +239,17 @@ Together, these divide a building into separate zones — known as **compartment
 
 ### Why this is your responsibility
 
-If you own or manage a building that isn't someone's private home, the law makes you responsible for keeping it safe — and that includes the fire protection built into the walls and doors, not just the alarms. Recent changes in fire safety law have made it even more important to know, and be able to prove, the condition of these measures.
+If you own or manage a building that isn't someone's private home, the law makes you responsible for keeping it safe and that includes the fire protection built into the walls and doors, not just the alarms. Recent changes in fire safety law have made it even more important to know, and be able to prove, the condition of these measures.
 
-The risk is that this kind of protection is easy to damage without realising — a single gap left unsealed, or a fire door propped open, can undo the protection an entire section of the building relies on.
+The risk is that this kind of protection is easy to damage without realising. A single gap left unsealed, or a fire door propped open, can undo the protection an entire section of the building relies on.
 
 ### Why keeping records matters
 
-Knowing your building is protected is only half the job — you need to be able to show it, too. Photos, certificates and clear records of what's been checked and fixed mean you're never caught out by an inspection, and any future work is faster and cheaper to plan.
+Knowing your building is protected is only half the job. You need to be able to show it, too. Photos, certificates and clear records of what's been checked and fixed mean you're never caught out by an inspection, and any future work is faster and cheaper to plan.
 
 ### Where to start
 
-If you're not sure what condition your building is in, a survey is the simplest first step. It tells you exactly where you stand, flags anything urgent, and gives you a clear, costed plan — rather than a guess.
+If you're not sure what condition your building is in, a survey is the place to start. It tells you exactly where you stand, flags anything urgent, and gives you a clear, costed plan. Get in touch and that's exactly where we'll begin.
 
 ---
 
@@ -263,7 +266,7 @@ If you're not sure what condition your building is in, a survey is the simplest 
 
 **Body**
 
-_Lead:_ A **compartmentation survey** tells you whether the fire protection in your building is actually doing its job — and exactly where it isn't. Done properly, it's not just a list of problems; it's a practical route to putting them right. Here's what happens.
+_Lead:_ A **compartmentation survey** tells you whether the fire protection in your building is actually doing its job, and exactly where it isn't. Done properly, it's not just a list of problems; it's a practical route to putting them right. Here's what happens.
 
 ### What we actually look at
 
@@ -277,7 +280,7 @@ We look at the things that divide a building into safe zones, and the places the
 
 ### How much we check
 
-We don't need to open up every wall to give you a clear picture. We agree the right level of checking with you upfront, based on your building and what you need to prove. Sometimes that means looking at what's visible and accessible; sometimes it means opening up a sample of areas — above ceilings, behind risers - to see what's really behind the surface. For most buildings, a sensible sample gives you real confidence without ripping the place apart.
+We don't need to open up every wall to give you a clear picture. We agree the right level of checking with you upfront, based on your building and what you need to prove. Sometimes that means looking at what's visible and accessible; sometimes it means opening up a sample of areas to see what's really behind the surface. For most buildings, a sensible sample gives you real confidence without ripping the place apart.
 
 ### What we record
 
@@ -290,12 +293,11 @@ The value of a survey is in the evidence. For every issue we find, we record:
 
 ### Turning the findings into action
 
-A spreadsheet full of problems isn't much help on its own. We turn it into a **clear, prioritised plan** — what needs sorting first, what can be grouped together efficiently, and what proof you'll have once it's done. That makes it easy to brief a contractor, budget for the work, and show you've dealt with it properly afterwards.
+A spreadsheet full of problems isn't much help on its own. We turn it into a **clear, prioritised plan** of what needs sorting first, what can be grouped together efficiently, and what proof you'll have once it's done. That makes it easy to brief a contractor, budget for the work, and show you've dealt with it properly afterwards.
 
 ### Working around your building, not against it
 
-Most of our surveys happen in buildings that are still in use. We plan around your tenants and your day-to-day operations, work out of hours if needed, and keep disruption to a minimum — so you get the answers you need without bringing the building to a standstill.
-
+Most of our surveys happen in buildings that are still in use. We plan around your tenants and your day-to-day operations, work out of hours if needed, and keep disruption to a minimum. If you want a straight answer on what survey your building needs, get in touch.
 ---
 
 ## Article 3 — Turning fire stopping defects into clear actions
@@ -338,4 +340,4 @@ With that, a contractor can quote accurately, turn up once, and fix it properly 
 
 ### Finish the job properly
 
-The work isn't really done until it's proven. We re-check completed work, take "after" photos against each item, and file the certificates. That record becomes part of your building's proof of compliance, and saves you time the next time someone checks.
+The work isn't done until it's proven. We re-check completed work, take "after" photos against each item, and file the certificates. That record becomes part of your building's proof of compliance. If you've got a list of defects and no clear plan, get in touch with Azar.
