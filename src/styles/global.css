@@ -283,19 +283,18 @@ p { overflow-wrap: break-word; }
 }
 
 /* ==========================================================================
-   Scroll reveal (progressive enhancement — visible by default)
+   Animation initial states (GSAP)
+   Only hidden when JS is active (html.anim) AND motion is allowed. With JS off
+   or reduced-motion, nothing is hidden — content shows immediately. GSAP then
+   animates these elements in.
    ========================================================================== */
 
 @media (prefers-reduced-motion: no-preference) {
-  [data-reveal] {
+  html.anim [data-reveal],
+  html.anim .hero-content > *,
+  html.anim .hero-badge {
     opacity: 0;
-    transform: translateY(1.5em);
-    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
-  }
-  [data-reveal].is-visible {
-    opacity: 1;
-    transform: none;
   }
 }
 

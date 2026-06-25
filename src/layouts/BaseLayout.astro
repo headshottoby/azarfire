@@ -26,6 +26,18 @@ const canonical = `${siteUrl}${path}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>
+      // Mark JS active before first paint so animated elements can start hidden
+      // without a flash. Failsafe: if the animation bundle never runs, reveal
+      // everything after 3s so content is never stuck hidden.
+      (function () {
+        var de = document.documentElement;
+        de.classList.add("anim");
+        window.__animFailsafe = setTimeout(function () {
+          de.classList.remove("anim");
+        }, 3000);
+      })();
+    </script>
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -65,28 +77,83 @@ const canonical = `${siteUrl}${path}`;
     <slot />
 
     <script>
-      // Lightweight scroll-reveal — no dependencies.
-      const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      import gsap from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-      if (reduce || !("IntersectionObserver" in window)) {
-        els.forEach((el) => el.classList.add("is-visible"));
-      } else {
-        const io = new IntersectionObserver(
-          (entries, obs) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              const el = entry.target as HTMLElement;
-              const delay = el.dataset.revealDelay;
-              if (delay) el.style.transitionDelay = delay;
-              el.classList.add("is-visible");
-              obs.unobserve(el);
-            });
-          },
-          { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
-        );
-        els.forEach((el) => io.observe(el));
-      }
+      gsap.registerPlugin(ScrollTrigger);
+
+      // GSAP is taking over — cancel the no-JS reveal failsafe.
+      clearTimeout((window as any).__animFailsafe);
+
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        // ── Hero entrance (on load) ────────────────────────────────────────
+        gsap.set(".hero-photo img", { scale: 1.14 });
+        gsap.set(".hero-content > *", { y: 24 });
+        gsap.set(".hero-badge", { y: 18 });
+
+        gsap
+          .timeline({ defaults: { ease: "power3.out" } })
+          .to(".hero-photo img", { scale: 1, duration: 1.8, ease: "power2.out" }, 0)
+          .to(".hero-content > *", { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.12 }, 0.15)
+          .to(".hero-badge", { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.07 }, "-=0.45");
+
+        // ── Section & card scroll reveals (batched) ────────────────────────
+        gsap.set("[data-reveal]", { y: 26 });
+        ScrollTrigger.batch("[data-reveal]", {
+          start: "top 86%",
+          once: true,
+          onEnter: (batch) =>
+            gsap.to(batch, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.85,
+              ease: "power3.out",
+              stagger: 0.1,
+              overwrite: true,
+            }),
+        });
+
+        // ── Process timeline nodes pop in ──────────────────────────────────
+        const nodes = gsap.utils.toArray<HTMLElement>(".process-node");
+        if (nodes.length) {
+          gsap.set(nodes, { scale: 0, transformOrigin: "center" });
+          ScrollTrigger.create({
+            trigger: ".process-steps",
+            start: "top 80%",
+            once: true,
+            onEnter: () =>
+              gsap.to(nodes, {
+                scale: 1,
+                duration: 0.5,
+                ease: "back.out(2)",
+                stagger: 0.12,
+                delay: 0.15,
+              }),
+          });
+        }
+
+        // ── Subtle depth: slow scale on the wide image bands ───────────────
+        gsap.utils
+          .toArray<HTMLElement>(".services-banner img, .process-banner img")
+          .forEach((img) => {
+            gsap.fromTo(
+              img,
+              { scale: 1 },
+              {
+                scale: 1.07,
+                ease: "none",
+                scrollTrigger: { trigger: img, start: "top bottom", end: "bottom top", scrub: true },
+              }
+            );
+          });
+
+        // Recalculate trigger positions once fonts have loaded.
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(() => ScrollTrigger.refresh());
+        }
+      });
     </script>
   </body>
 </html>
