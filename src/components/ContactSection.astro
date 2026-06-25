@@ -40,8 +40,15 @@
     </div>
 
     <div class="contact-card" data-reveal data-reveal-delay="100ms">
-      <!-- TODO: wire `action` to a form endpoint (e.g. Formspree / Vercel function) to receive submissions -->
-      <form class="contact-form" action="#" method="post">
+      <form
+        id="contact-form"
+        class="contact-form"
+        action="https://formspree.io/f/mvzjkzjb"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="New enquiry from azarfire.co.uk" />
+        <!-- honeypot: hidden from people, catches bots -->
+        <input type="text" name="_gotcha" class="contact-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <label class="field">
           <span class="field-label">Name</span>
           <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
@@ -55,10 +62,74 @@
           <textarea name="message" rows="4" placeholder="Tell us about your building or project…" required></textarea>
         </label>
         <button type="submit" class="btn btn-primary contact-submit">Send enquiry</button>
+        <p class="contact-form-error" role="alert" hidden></p>
       </form>
+
+      <div class="contact-success" role="status" hidden>
+        <svg class="contact-success-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+          <circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.15" />
+          <path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h3 class="contact-success-title">Thanks &mdash; message sent.</h3>
+        <p class="contact-success-text">
+          We&rsquo;ve got your enquiry and we&rsquo;ll be in touch shortly. If it&rsquo;s urgent, call
+          us on <a href="tel:+441522530048">01522 530048</a>.
+        </p>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Submit to Formspree in the background and show an inline thank-you.
+  // Falls back to a normal form POST if JS is unavailable.
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  if (form) {
+    const card = form.closest(".contact-card");
+    const success = card?.querySelector(".contact-success") as HTMLElement | null;
+    const errorEl = form.querySelector(".contact-form-error") as HTMLElement | null;
+    const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (errorEl) errorEl.hidden = true;
+      const label = submit?.textContent;
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = "Sending…";
+      }
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        if (res.ok) {
+          form.hidden = true;
+          if (success) {
+            success.hidden = false;
+            success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+          return;
+        }
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.errors?.[0]?.message ?? "Request failed");
+      } catch {
+        if (errorEl) {
+          errorEl.textContent =
+            "Sorry, that didn't send. Please try again, or email info@azarfire.co.uk.";
+          errorEl.hidden = false;
+        }
+      } finally {
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = label ?? "Send enquiry";
+        }
+      }
+    });
+  }
+</script>
 
 <style>
   .contact {
@@ -183,6 +254,47 @@
   .contact-submit {
     align-self: flex-start;
     margin-top: 0.25em;
+  }
+
+  /* Spam honeypot — off-screen for people, visible to bots */
+  .contact-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+  .contact-form-error {
+    margin-top: 0.25em;
+    font-size: var(--fs-sm);
+    color: #c0392b;
+  }
+
+  .contact-success {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+  .contact-success-icon {
+    width: 2.5em;
+    height: 2.5em;
+    color: #2e7d32;
+  }
+  .contact-success-title {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--color-petrol);
+  }
+  .contact-success-text {
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    color: var(--color-grey);
+  }
+  .contact-success-text a {
+    color: var(--color-petrol);
+    text-decoration: underline;
+    text-decoration-color: var(--color-mustard);
   }
 
   @media (max-width: 991px) {
