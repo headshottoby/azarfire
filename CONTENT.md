@@ -69,11 +69,12 @@ Here's what we do.
 
 **Service cards (6 — title + description):**
 
-1. **Find out where you stand (Fire Compartmentation surveys)** — We check your building and tell you exactly what is breaching the compartment and where. You will be provided with a full quantifiable document to be able to schedule the works required.
-2. **Check work that's already been done (fire stopping inspections)** — Had fire-stopping installed by someone else? We inspect it independently and tell you straight whether it's actually safe, with photos to prove it.
-3. **Check your fire barriers are intact (compartmentation review)** — Walls and floors are meant to stop fire spreading between rooms or flats. We find the gaps that let it through, before they become a problem.
-4. **Get a clear plan to fix problems (remediation advice)** — We tell you exactly what needs doing, in what order, and roughly what it'll cost so you can brief a contractor with confidence.
-5. **Get the paperwork you need (compliance reporting)** — Reports your insurer, fire risk assessor or a regulator can actually rely on.
+1. **Fire Compartmentation Survey** — We check your building and tell you exactly what is breaching the compartment and where. You will be provided with a full quantifiable document to be able to schedule the works required.
+2. **Fire Strategies** — 
+3. Installations-
+ *Compartmentation Drawings**-
+3. **Remediation Advice** — We tell you exactly what needs doing, and the costs involved.
+5. **Compliance reporting** — All the necessary documentation provided for you via One Trace app, the market leading tool for reporting, with reports tailored to the clients requirements.
 6. **Cover for multiple sites, anywhere in the UK** — Managing several buildings or a whole portfolio? We work the same way everywhere, so the results are consistent and comparable across every site.
 
 ## 1.3 Method / Our process
