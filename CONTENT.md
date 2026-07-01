@@ -69,7 +69,7 @@ Here's what we do.
 
 **Service cards (6 — title + description):**
 
-1. **Find out where you stand (passive fire surveys)** — We check your building and tell you exactly what's missing or damaged. 
+1. **Find out where you stand (Fire Compartmentation surveys)** — We check your building and tell you exactly what is breaching the compartment and where. You will be provided with a full quantifiable document to be able to schedule the works required.
 2. **Check work that's already been done (fire stopping inspections)** — Had fire-stopping installed by someone else? We inspect it independently and tell you straight whether it's actually safe, with photos to prove it.
 3. **Check your fire barriers are intact (compartmentation review)** — Walls and floors are meant to stop fire spreading between rooms or flats. We find the gaps that let it through, before they become a problem.
 4. **Get a clear plan to fix problems (remediation advice)** — We tell you exactly what needs doing, in what order, and roughly what it'll cost so you can brief a contractor with confidence.
@@ -87,8 +87,8 @@ Here's what we do.
 **Steps (4 — number + title + description):**
 
 1. **01 — Talk it through** — We find out what type of building you have and what you need. 
-2. **02 — Check the building (passive fire survey)** — If needed, we go through your building for gaps, damaged doors and weak spots, and show you exactly where they are with photos and a clear to-do list.
-3. **03 — Do the work** — Our trained team carries out the repairs using approved materials.
+2. **02 — Check the building (Compartmentation survey)** — If needed, we go through your building for breaches, damaged doors and weak spots, and show you exactly where they are with photos and a clear to-do list.
+3. **03 — Do the work** — Our trained 3rd party accredited installers carry out the repairs using approved systems and materials.
 4. **04 — Hand you the proof** — You get full certification and a complete record of everything we did. Proof of compliance, ready whenever you need it.
 
 ## 1.4 Homepage section — What is passive fire protection?
@@ -99,10 +99,10 @@ Here's what we do.
 - **Label (script):** Advice
 - **Heading:** What's actually stopping fire from spreading through your building?
 - **Paragraph 1:** Most of what keeps a fire contained isn't an alarm or a sprinkler, it's the building itself. Properly sealed walls, doors that actually close and latch, pipework gaps filled in rather than left open. None of it needs switching on. It just has to be there, intact.
-- **Paragraph 2:** If you own or manage a building, you're legally responsible for this, whether you put it there or inherited it from someone else. You usually can't tell it's missing or damaged just by looking. A survey tells you exactly where you stand. 
+- **Paragraph 2:** If you own or manage a building, you're legally responsible for this, whether you put it there or inherited it from someone else. You usually can't tell it's missing or damaged just by looking. A compartmentation survey tells you exactly where you stand. 
 - **Sub-heading:** What this actually means for you
 - **Benefits (4):**
-  1. Stops a fire in one room or flat from spreading to the rest of the building.
+  1. Stops a fire in one compartment from spreading to the rest of the building.
   2. Keeps escape routes clear of smoke and flames, so people get out safely.
   3. Protects the building itself, so it can be repaired rather than rebuilt.
   4. Gives you paperwork that proves you've done the right thing ready for insurers, assessors or inspections.
@@ -112,7 +112,7 @@ Here's what we do.
 
 - **Label (script):** Contact
 - **Heading:** Get in touch. It's the simplest way to find out where you stand.
-- **Intro:** Tell us about your building or project. We'll tell you straight what's involved and what it'd take to get you covered.
+- **Intro:** Tell us about your building or project. We'll tell you straight what's involved and what it will take to get you compliant and certified.
 - **Email:** `info@azarfire.co.uk`
 - **Phone:** 01522 530048  → dials `+441522530048`
 - **Form — Field 1 label:** Name — _placeholder:_ Your name
@@ -182,7 +182,7 @@ Single sites or whole portfolios, anywhere in the UK.
 
 - **Eyebrow:** Advice
 - **Heading:** Fire safety, simply explained.
-- **Body:** Direct answers to the questions building owners, landlords and managers actually ask us. Surveys, fire doors, sealing gaps, proving you're covered.
+- **Body:** Direct answers to the questions building owners, landlords and managers actually ask us. Surveys, fire doors, penetration sealing, proving you're covered.
 
 ## 3.2 Latest articles
 
@@ -233,7 +233,7 @@ Together, these divide a building into separate zones, known as **compartmentati
 
 - **Walls and floors between rooms or flats** — built to hold a fire back for a set amount of time, often half an hour, an hour, or two hours.
 - **Fire doors** — not just any door. The right door, properly fitted, with the correct gaps and seals, kept shut.
-- **Sealed gaps around pipes and cables (fire stopping)** — anywhere a pipe, wire or duct passes through a wall or floor, the gap around it needs filling in properly, or fire can slip straight through.
+- **Sealed gaps around pipes and cables (Penetration sealing or fire stopping)** — anywhere a pipe, wire or duct passes through a wall or floor, the gap around it needs filling in properly, or fire can slip straight through.
 - **Sealed hidden spaces** — ceiling voids and service shafts can let fire spread unseen if they aren't blocked off.
 - **Protected steelwork** — exposed structural steel can fail in a fire unless it's coated or boarded to protect it.
 
@@ -270,17 +270,17 @@ _Lead:_ A **compartmentation survey** tells you whether the fire protection in y
 
 ### What we actually look at
 
-We look at the things that divide a building into safe zones, and the places they're most often let down:
+We look at the things that divide a building into compartments, and the places they're most often let down:
 
 - Walls and floors between rooms or flats, and the joins between them
 - Anywhere a pipe, cable or duct passes through a wall or floor
-- Fire doors — and whether they actually close, seal and latch properly
+- Fire doors — and whether they actually close, seal and latch properly with the correct gaps
 - Ceiling voids, risers and other hidden spaces that should be blocked off
 - Junctions and awkward details where gaps often get missed during building work
 
 ### How much we check
 
-We don't need to open up every wall to give you a clear picture. We agree the right level of checking with you upfront, based on your building and what you need to prove. Sometimes that means looking at what's visible and accessible; sometimes it means opening up a sample of areas to see what's really behind the surface. For most buildings, a sensible sample gives you real confidence without ripping the place apart.
+We don't need to open up every wall to give you a clear picture. We agree the right level of checking with you upfront, based on your building and what you need to prove. Sometimes that means looking at what's visible and accessible; sometimes it means opening up a sample of areas to see what's really behind the surface. For most buildings, a sensible 10% sample gives you real confidence without ripping the place apart.
 
 ### What we record
 
