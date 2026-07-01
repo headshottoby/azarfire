@@ -12,30 +12,15 @@ const instructedTo = [
   "Get reports and certificates for insurers, assessors or regulators",
 ];
 
-const capabilities = [
+const capabilities: { title: string; body?: string }[] = [
+  { title: "Installation Works" },
+  { title: "Maintenance" },
+  { title: "Fire Engineering" },
+  { title: "Fire Safety Consultancy" },
+  { title: "Surveys" },
   {
-    title: "Building surveys (passive fire surveys)",
-    body: "We go through your building and tell you exactly what's protecting it from fire, and what isn't. Doors, walls, ceilings, anywhere pipes or cables pass through.",
-  },
-  {
-    title: "Checking existing work (fire stopping inspections)",
-    body: "Already had work done? We inspect it independently, with photos and evidence, and tell you straight whether it was done properly.",
-  },
-  {
-    title: "Fire barrier checks (compartmentation reviews)",
-    body: "We assess the walls, floors and hidden spaces meant to stop fire spreading, and flag anywhere that's been compromised.",
-  },
-  {
-    title: "A clear plan to fix it (remediation strategy)",
-    body: "We turn problems into a straightforward, prioritised plan, so you or your contractor know exactly what to do first.",
-  },
-  {
-    title: "Reports you can actually use (compliance reporting)",
-    body: "Clear reports for whoever needs to see them; your insurer, your fire risk assessor, your board, or a regulator.",
-  },
-  {
-    title: "Multi-site support (portfolio surveys)",
-    body: "Managing more than one building? Same standard of check, same kind of report, across every site.",
+    title: "Cover for multiple sites, anywhere in the UK",
+    body: "Managing several buildings or a whole portfolio? We work the same way everywhere, so the results are consistent and comparable across every site.",
   },
 ];
 ---
@@ -113,7 +98,7 @@ const capabilities = [
             <li class="cap-card" data-reveal data-reveal-delay={`${(i % 3) * 90}ms`}>
               <span class="cap-index">{String(i + 1).padStart(2, "0")}</span>
               <h3 class="cap-title">{cap.title}</h3>
-              <p class="cap-body">{cap.body}</p>
+              {cap.body && <p class="cap-body">{cap.body}</p>}
               <span class="cap-line" aria-hidden="true"></span>
             </li>
           ))}

@@ -67,15 +67,22 @@ Here's what we do.
 
 - _(image alt text)_ — Team band: Azar Fire operatives on site at a fire door
 
-**Service cards (6 — title + description):**
+**Service cards (6 — titles only for now; descriptions for cards 1–5 to be added later with new copy):**
 
-1. **Fire Compartmentation Survey** — We check your building and tell you exactly what is breaching the compartment and where. You will be provided with a full quantifiable document to be able to schedule the works required.
-2. **Fire Strategies** — 
-3. Installations-
- *Compartmentation Drawings**-
-3. **Remediation Advice** — We tell you exactly what needs doing, and the costs involved.
-5. **Compliance reporting** — All the necessary documentation provided for you via One Trace app, the market leading tool for reporting, with reports tailored to the clients requirements.
+1. Installation Works
+2. Maintenance
+3. Fire Engineering
+4. Fire Safety Consultancy
+5. Surveys
 6. **Cover for multiple sites, anywhere in the UK** — Managing several buildings or a whole portfolio? We work the same way everywhere, so the results are consistent and comparable across every site.
+
+> **Draft descriptions to fold in later (client notes — not yet live on the site):**
+> - **Fire Compartmentation Survey** — We check your building and tell you exactly what is breaching the compartment and where. You will be provided with a full quantifiable document to be able to schedule the works required.
+> - **Fire Strategy** —
+> - **Installation Works** —
+> - **Remedial Works** — We tell you exactly what needs doing, and the costs involved.
+> - **Compliance reporting** — All the necessary documentation provided for you via the One Trace app, the market-leading tool for reporting, with reports tailored to the client's requirements.
+> - **Consultancy** — Fire safety engineering, consultancy, fire risk assessments, compartmentation drawings.
 
 ## 1.3 Method / Our process
 
@@ -154,14 +161,14 @@ Single sites or whole portfolios, anywhere in the UK.
 - **Label (script):** How we can help
 - **Heading:** Whatever stage you're at, here's exactly what we do.
 
-**Capability cards (6 — title + description):**
+**Capability cards (6 — titles only for now; descriptions for cards 1–5 to be added later with new copy):**
 
-1. **Building surveys (passive fire surveys)** — We go through your building and tell you exactly what's protecting it from fire, and what isn't. Doors, walls, ceilings, anywhere pipes or cables pass through.
-2. **Checking existing work (fire stopping inspections)** — Already had work done? We inspect it independently, with photos and evidence, and tell you straight whether it was done properly.
-3. **Fire barrier checks (compartmentation reviews)** — We assess the walls, floors and hidden spaces meant to stop fire spreading, and flag anywhere that's been compromised.
-4. **A clear plan to fix it (remediation strategy)** — We turn problems into a straightforward, prioritised plan, so you or your contractor know exactly what to do first.
-5. **Reports you can actually use (compliance reporting)** — Clear reports for whoever needs to see them; your insurer, your fire risk assessor, your board, or a regulator.
-6. **Multi-site support (portfolio surveys)** — Managing more than one building? Same standard of check, same kind of report, across every site.
+1. Installation Works
+2. Maintenance
+3. Fire Engineering
+4. Fire Safety Consultancy
+5. Surveys
+6. **Cover for multiple sites, anywhere in the UK** — Managing several buildings or a whole portfolio? We work the same way everywhere, so the results are consistent and comparable across every site.
 
 ## 2.3 CTA
 

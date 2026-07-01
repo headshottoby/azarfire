@@ -2,27 +2,12 @@
 import { Image } from "astro:assets";
 import teamImg from "../assets/images/team-doorway.jpg";
 
-const services = [
-  {
-    title: "Find out where you stand (Fire Compartmentation surveys)",
-    body: "We check your building and tell you exactly what is breaching the compartment and where. You will be provided with a full quantifiable document to be able to schedule the works required.",
-  },
-  {
-    title: "Check work that's already been done (fire stopping inspections)",
-    body: "Had fire-stopping installed by someone else? We inspect it independently and tell you straight whether it's actually safe, with photos to prove it.",
-  },
-  {
-    title: "Check your fire barriers are intact (compartmentation review)",
-    body: "Walls and floors are meant to stop fire spreading between rooms or flats. We find the gaps that let it through, before they become a problem.",
-  },
-  {
-    title: "Get a clear plan to fix problems (remediation advice)",
-    body: "We tell you exactly what needs doing, in what order, and roughly what it'll cost so you can brief a contractor with confidence.",
-  },
-  {
-    title: "Get the paperwork you need (compliance reporting)",
-    body: "Reports your insurer, fire risk assessor or a regulator can actually rely on.",
-  },
+const services: { title: string; body?: string }[] = [
+  { title: "Installation Works" },
+  { title: "Maintenance" },
+  { title: "Fire Engineering" },
+  { title: "Fire Safety Consultancy" },
+  { title: "Surveys" },
   {
     title: "Cover for multiple sites, anywhere in the UK",
     body: "Managing several buildings or a whole portfolio? We work the same way everywhere, so the results are consistent and comparable across every site.",
@@ -59,7 +44,7 @@ const services = [
         <li class="service-card" data-reveal data-reveal-delay={`${(i % 3) * 90}ms`}>
           <span class="service-index">{String(i + 1).padStart(2, "0")}</span>
           <h3 class="service-title">{service.title}</h3>
-          <p class="service-body">{service.body}</p>
+          {service.body && <p class="service-body">{service.body}</p>}
           <span class="service-line" aria-hidden="true"></span>
         </li>
       ))}
